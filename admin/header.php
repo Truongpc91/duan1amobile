@@ -622,10 +622,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
             </a>
             <ul class="collapse list-unstyled" id="products">
                 <li>
-                    <a href="index.php?act=addhanghoa"><i class="fas fa-plus"></i>Thêm sản phẩm</a>
+                    <a href="index.php?act=addsanpham"><i class="fas fa-plus"></i>Thêm sản phẩm</a>
                 </li>
                 <li>
-                    <a href="index.php?act=listhanghoa">
+                    <a href="index.php?act=listsanpham">
                         <i class="fas fa-list-ul"></i>Danh sách sản phẩm</a>
                 </li>
             </ul>
