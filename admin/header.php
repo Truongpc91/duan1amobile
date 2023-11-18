@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="icon" href="../upload/logoadidas.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="../uploads/Logo.png" type="image/gif" sizes="16x16">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/dashboard.css" type="text/css">
@@ -32,7 +32,7 @@
     object-fit: contain;
 }
 .logo {
-    height: 46px;
+    height: 80px;
 }
 .ml-auto {
     margin-left: auto;
@@ -120,7 +120,7 @@
 #sidebar .sidebar-header {
     padding: 0.4rem 1rem;
     border-bottom: 1px solid rgba(101, 109, 119, 0.16);
-    max-height: 55px;
+    max-height: 100px;
 }
 
 #sidebar ul.components {
@@ -589,7 +589,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     <nav id="sidebar">
     <div class="sidebar-header">
         <a href="../index.php">
-            <img src="../upload/logoadidas.png" alt="logo" class="img-fluid logo">
+            <img src="../uploads/Logo.png" alt="logo" class="img-fluid logo" width="80">
         </a>
     </div>
     <ul class="list-unstyled components text-secondary">
