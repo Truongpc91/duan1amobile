@@ -49,7 +49,7 @@
                     <td>'.$id_dm.'</td>
                     <td>
                       <a href="'.$suasanpham.'"><input type="button" value="Sửa" class="btn btn-outline-secondary"></a>
-                      <a href="'.$suasanpham.'"><input type="button" value="Xóa" class="btn btn-outline-secondary"></a>
+                      <a href="'.$xoasanpham.'"><input type="button" value="Xóa" class="btn btn-outline-secondary"></a>
                     </td>
                   </tr>';
         } ?>

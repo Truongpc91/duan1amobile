@@ -9,7 +9,7 @@ function san_pham_insert($ten_sanpham, $gia, $anh_sanpham, $color, $dung_luong, 
 
 function san_pham_update($id_sanpham, $ten_sanpham, $gia, $anh_sanpham, $color, $dung_luong, $noi_dung, $id_dm){
     if($anh_sanpham != "") {
-        $sql = "UPDATE san_pham SET ten_sanpham='".$ten_sanpham."', anh_sanpham='".$anh_sanpham."', gia='".$gia."', color='".$color."', mo_ta='".$mo_ta."' WHERE id_sanpham=".$id_sanpham;
+        $sql = "UPDATE san_pham SET ten_sanpham='".$ten_sanpham."', anh_sanpham='".$anh_sanpham."', gia='".$gia."', color='".$color."', dung_luong='".$dung_luong."', noi_dung='".$noi_dung."', id_dm='".$id_dm."' WHERE id_sanpham=".$id_sanpham;
     }else {
         $sql = "UPDATE san_pham SET ten_sanpham='".$ten_sanpham."', dung_luong='".$dung_luong."', gia='".$gia."', color='".$color."', noi_dung='".$noi_dung."', id_dm='".$id_dm."' WHERE id_sanpham=".$id_sanpham;
     }
@@ -40,7 +40,7 @@ function san_pham_select_all($keyword="",$id_dm=0){
     return pdo_query($sql);
 }
 
-function hang_hoa_select_by_id($id_sanpham){
+function san_pham_select_by_id($id_sanpham){
     $sql = "SELECT * FROM san_pham WHERE id_sanpham=$id_sanpham";
     return pdo_query_one($sql);
 }
@@ -56,7 +56,7 @@ function san_pham_select_by_loai($id_sanpham){
     return pdo_query($sql);
 }
 
-function hang_hoa_select_cung_loai($ma_loai){
+function san_pham_select_cung_loai($ma_loai){
     $sql = "SELECT * FROM hang_hoa WHERE ma_loai ='$ma_loai'";
     return pdo_query($sql);
 }

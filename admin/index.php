@@ -115,44 +115,46 @@
                    
                 $sanpham = san_pham_select_by_id($_GET['id']);
             }
-            $listdanhmuc = loai_select_all();
+            $listdanhmuc = danh_muc_select_all();
             include 'san-pham/update.php';
             break;
     
         case 'updatesanpham' :
             if(isset($_POST['capnhat']) && ($_POST['capnhat'])) {
-                $id = $_POST['id'];
-                $maloai = $_POST['maloai'];
-                $tensp = $_POST['tenhh'];
+                $id_sanpham = $_POST['id'];
+                $id_dm = $_POST['id_dm'];
+                $ten_sanpham = $_POST['ten_sanpham'];
                 $gia = $_POST['gia'];
-                $mota = $_POST['mota'];
-                $hinh = $_FILES['hinh']['name'];
-                $_FILES['hinh']['name'];
+                $color = $_POST['color'];
+                $dung_luong = $_POST['dung_luong'];
+                $noi_dung = $_POST['noi_dung'];
+                $anh_sanpham = $_FILES['anh_sanpham']['name'];
                 $target_dir = "../uploads/";
-                $target_file = $target_dir . basename($_FILES['hinh']['name']);
-                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                $target_file = $target_dir . basename($_FILES['anh_sanpham']['name']);
+                if (move_uploaded_file($_FILES["anh_sanpham"]["tmp_name"], $target_file)) {
                    // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
                 } else {
                    // echo "Sorry, there was an error uploading your file.";
                 }
-                hang_hoa_update($id, $maloai, $tensp, $gia, $hinh, $mota);
+                san_pham_update($id_sanpham, $ten_sanpham, $gia, $anh_sanpham, $color, $dung_luong, $noi_dung, $id_dm);
                 echo "<script>
                 alert('Sửa Sản Phẩm Thành Công!!!'); 
-                </script>"; 
+                location.href='http://localhost/duan1amobile/admin/index.php?act=listsanpham';
+                </script>";
             }
-            $listloaihang = loai_select_all();
-            $listhanghoa = hang_hoa_select_all();
+            $listdanhmuc = danh_muc_select_all();
+            $listsanpham = san_pham_select_all();
             include 'san-pham/list.php';
             break;
 
         case 'xoasanpham': 
             if(isset($_GET['id']) && ($_GET['id'])>0 ) {
-                hang_hoa_delete($_GET['id']);
+                san_pham_delete($_GET['id']);
                 echo "<script>
                 alert('Xóa Sản Phẩm Thành Công!!!'); 
                 </script>";
             }
-            $listhanghoa = hang_hoa_select_all("",0);
+            $listsanpham = san_pham_select_all("",0);
             include 'san-pham/list.php';
             break;
 
