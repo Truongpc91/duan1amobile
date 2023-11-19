@@ -46,8 +46,8 @@ function san_pham_select_by_id($id_sanpham){
 }
 
 
-function hang_hoa_select_top10(){
-    $sql = "SELECT * FROM hang_hoa WHERE so_luot_xem > 0 ORDER BY don_gia ASC LIMIT 0, 4";
+function san_pham_select_top10(){
+    $sql = "SELECT * FROM san_pham WHERE id_sanpham > 0 ORDER BY id_sanpham DESC LIMIT 0, 10";
     return pdo_query($sql);
 }
 
