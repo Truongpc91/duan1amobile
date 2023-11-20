@@ -33,7 +33,34 @@
     if(isset($_GET['act']) && ($_GET['act']!='')) {
         $act = $_GET['act'];
         switch ($act) {
-           
+            case 'sanpham':
+                $ds_dm = danh_muc_select_all();
+                if(isset($_GET['id_dm']) && ($_GET['id_dm']) > 0){
+                    $id_dm = $_GET['id_dm'];
+                    $name_dm = danh_muc_select_by_id($id_dm);
+                    extract($name_dm);
+                    $title_site = "Các sản phẩm thuộc loại : '<i>$ten_dm</i>' ";
+                    $items = san_pham_select_by_loai($id_dm);
+                    if (count($items) == 0) {
+                        $title_site = "Không sản phẩm nào thuộc loại :'<i>$ten_dm</i>'";
+                    }
+                }else if (isset($_POST['timkiem'])) {
+                    $kyw = $_POST['kyw'];
+                    if ($kyw == '') {
+                        $title_site = "Tất cả sản phẩm";
+                    } else {
+                        $title_site = "Các sản phẩm có chứa từ khóa :'<i>$kyw</i>'";
+                    }
+                    $items = san_pham_select_keyword($kyw);
+                    if (count($items) == 0) {
+                        $title_site = "Không sản phẩm nào chứa từ khóa :'<i>$kyw</i>'";
+                    }
+                } else {
+                    $title_site = "Tất cả sản phẩm";
+                    $items = san_pham_select_page('so_luot_xem', 9);
+                }
+                include 'view/trang-chinh/sanpham.php';
+                break;
             case 'lienhe':
                 include 'view/trang-chinh/lienhe.php';
                 break;
