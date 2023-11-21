@@ -633,16 +633,16 @@ table.dataTable > tbody > tr.child ul.dtr-details {
         <!-- Khách hàng -->
         <li>
             <a href="#accounts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                <i class="fas fa-user-friends"></i>Khách hàng
+                <i class="fas fa-user-friends"></i>Người Dùng
                 <i class="fas fa-angle-right float-xl-right"></i>
             </a>
             <ul class="collapse list-unstyled" id="accounts">
                 <li>
-                    <a href="index.php?act=addkhachhang"><i class="fas fa-plus"></i>Thêm khách hàng</a>
+                    <a href="index.php?act=addkhachhang"><i class="fas fa-plus"></i>Thêm người dùng</a>
                 </li>
                 <li>
-                    <a href="index.php?act=listkhachhang">
-                        <i class="fas fa-list-ul"></i>Danh sách khách hàng</a>
+                    <a href="index.php?act=listuser">
+                        <i class="fas fa-list-ul"></i>Danh sách người dùng</a>
                 </li>
             </ul>
         </li>

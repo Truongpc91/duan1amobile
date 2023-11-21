@@ -111,6 +111,23 @@
                     include 'view/user/dang-nhap.php';
                     break;
 
+                case 'edit_taikhoan':
+                    if(isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                        $ten_dang_nhap = $_POST['ten_dang_nhap'];
+                        $ten_user = $_POST['ten_user'];
+                        $email = $_POST['email'];
+                        $email = $_POST['email'];
+                        $so_dien_thoai = $_POST['so_dien_thoai'];
+                        $dia_chi = $_POST['dia_chi'];
+                        user_edit($ten_dang_nhap, $ten_user, $email, $so_dien_thoai, $dia_chi);
+                        echo "<script>
+                        alert('Cập Nhật Tài Khoản Thành Công!!!'); 
+                        location.href='http://localhost:/duan1amobile';
+                        </script>"; 
+                    }
+                    include 'view/user/edit-thong-tin.php';
+                    break;
+                    
                 case 'edit_matkhau':
                     if(isset($_POST['doimk']) && ($_POST['doimk'])) {
                         $ten_dang_nhap = $_POST['ten_dang_nhap'];

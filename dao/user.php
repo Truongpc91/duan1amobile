@@ -22,20 +22,20 @@ function khach_hang_update($ma_kh, $kich_hoat, $vai_tro){
     pdo_execute($sql);
 }
 
-function khach_hang_edit( $ma_kh, $ho_ten, $email){
-    $sql = "UPDATE khach_hang SET  ho_ten='".$ho_ten."',email='".$email."' WHERE ma_kh='".$ma_kh."'";
+function user_edit($ten_dang_nhap, $ten_user, $email, $so_dien_thoai, $dia_chi){
+    $sql = "UPDATE user SET  ten_user='".$ten_user."',email='".$email."', so_dien_thoai='".$so_dien_thoai."', dia_chi='".$dia_chi."'  WHERE ten_dang_nhap='".$ten_dang_nhap."'";
     pdo_execute($sql);
 }
 
-function khach_hang_delete($ma_kh){
-    $sql = "DELETE FROM khach_hang  WHERE ma_kh=$makh";
-    if(is_array($ma_kh)){
-        foreach ($ma_kh as $ma) {
+function user_delete($ten_dang_nhap){
+    $sql = "DELETE FROM user  WHERE ten_dang_nhap=$ten_dang_nhap";
+    if(is_array($ten_dang_nhap)){
+        foreach ($ten_dang_nhap as $ma) {
             pdo_execute($sql, $ma);
         }
     }
     else{
-        pdo_execute($sql, $ma_kh);
+        pdo_execute($sql, $ten_dang_nhap);
     }
 }
 

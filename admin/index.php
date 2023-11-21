@@ -4,7 +4,7 @@
     include 'header.php';
     include '../dao/danh-muc.php';
     include '../dao/san-pham.php';
-    include '../dao/khach-hang.php';
+    include '../dao/user.php';
     include '../dao/thong-ke.php';
     include '../dao/binh-luan.php';
 
@@ -158,7 +158,12 @@
             include 'san-pham/list.php';
             break;
 
+        case 'listuser':
+            $listuser = user_select_all();
+            include 'user/list.php';
+            break;
         }
+
     }else {
             include 'home.php';
         }
