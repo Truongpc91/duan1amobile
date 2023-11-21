@@ -15,6 +15,12 @@
                 <div class="form-group">
                     Họ và tên<input type="text" name="ten_user" class="form-control" required>
                 </div>
+                <div class="form-group">
+                    Số điện thoại<input type="text" name="so_dien_thoai" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    Địa chỉ<input type="text" name="dia_chi" class="form-control" required>
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         Mật khẩu<input type="password" name="mat_khau" id="mat_khau" class="form-control" required >

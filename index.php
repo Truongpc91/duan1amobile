@@ -78,8 +78,8 @@
                     binh_luan_insert($ten_dang_nhap, $_SESSION['product'], $noi_dung, $ngay_bl);
                     $onesp = san_pham_select_by_id($_SESSION['product']);
                     extract($onesp);
-                    $hh_cung_loai = hang_hoa_select_cung_loai($ma_loai, $_SESSION['product']); 
-                    $binh_luan_list = binh_luan_select_by_hang_hoa($_SESSION['product']);
+                    $sp_cung_loai = san_pham_select_cung_loai($id_dm, $_SESSION['product']); 
+                    $binh_luan_list = binh_luan_select_by_san_pham($_SESSION['product']);
                     include 'view/san-pham/san-pham-chi-tiet.php';
                     include 'view/san-pham/san-pham-cung-loai.php';
                     }
@@ -91,7 +91,69 @@
                 include 'view/trang-chinh/gioithieu.php';
                 break;
             case 'dangnhap':
-                break;
+                if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                    $ten_dang_nhap = $_POST['ten_dang_nhap'];
+                    $mat_khau = $_POST['mat_khau'];
+                    $checkuser = check_user($ten_dang_nhap, $mat_khau);
+                    if($ten_dang_nhap!=''){
+                    if(is_array($checkuser)){
+                        $_SESSION['user'] = $checkuser;
+                        echo "<script>
+                        alert('Đăng Nhập Thành Công!!!'); 
+                        location.href='http://localhost:/duan1amobile';
+                        </script>";  
+                    }
+                    }else{
+                        $thongbao = "<i style='color: red;'>Tài khoản hoặc mặt khẩu không tồn tại !!!</i>";
+                    }
+                    
+                }
+                    include 'view/user/dang-nhap.php';
+                    break;
+
+                case 'edit_matkhau':
+                    if(isset($_POST['doimk']) && ($_POST['doimk'])) {
+                        $ten_dang_nhap = $_POST['ten_dang_nhap'];
+                        $mat_khau_moi = $_POST['mat_khau2'];
+                        $mat_khau_moi2 = $_POST['mat_khau3'];
+                        $thongbao = "Mật khẩu nhập không trùng nhau !!!"; 
+                        user_change_password($ten_dang_nhap, $mat_khau_moi);
+                        echo "<script>
+                        alert('Đổi Mật Khẩu Thành Công!!!'); 
+                        location.href='http://localhost:/duan1amobile/index.php?act=dangnhap';
+                        </script>";
+                    }
+                        include 'view/user/edit-mat-khau.php';
+                        break;
+                case 'dangky':
+                    if(isset($_POST['dangky']) && ($_POST['dangky'])) {
+                        $ten_dang_nhap = $_POST['ten_dang_nhap'];
+                        $ten_user = $_POST['ten_user'];
+                        $email = $_POST['email'];
+                        $vai_tro = 0;
+                        $kich_hoat = 1;
+                        $mat_khau = $_POST['mat_khau'];
+                        $mat_khau2 = $_POST['mat_khau2'];
+                        $so_dien_thoai = $_POST['so_dien_thoai'];
+                        $dia_chi = $_POST['dia_chi'];
+                        $anh_user = $_FILES['anh_user']['name'];
+                        $target_dir = "uploads/";
+                        $target_file = $target_dir . basename($_FILES['anh_user']['name']);
+                        user_add($ten_dang_nhap, $mat_khau, $ten_user, $vai_tro, $kich_hoat, $email, $so_dien_thoai, $dia_chi, $anh_user);
+                        echo "<script>
+                        alert('Đăng Ký Tài Khoản Thành Công!!!'); 
+                        location.href='http://localhost:/duan1amobile/index.php?act=dangnhap';
+                        </script>";
+                    }
+                    include 'view/user/dang-ky.php';
+                    break;
+                case 'dangxuat':
+                    session_unset();
+                    echo "<script>
+                        alert('Đăng Xuất Thành Công!!!'); 
+                        location.href='http://localhost:/duan1amobile';
+                        </script>";
+                    break;
             default:
                 include 'view/trang-chinh/slideshow.php';
                 include 'view/trang-chinh/home.php';

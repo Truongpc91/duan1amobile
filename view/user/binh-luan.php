@@ -4,13 +4,8 @@
             <?php foreach ($binh_luan_list as $bl) : ?>
             <div class="review">
                 <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                <meta itemprop="datePublished" content="01-01-2016"><?= $bl['ngay_bl'] ?>
-
-                <?php for ($i = 1; $i <= $bl['danh_gia']; $i++) {
-                        echo '<span class="review_rating fa fa-star"></span>';
-                    } ?>
-
-                by <b><?= $bl['ma_kh'] ?></b>
+                <meta itemprop="datePublished" content="01-01-2016"><?= $bl['ngay_binh_luan'] ?>               
+                by <b><?= $bl['ten_dang_nhap'] ?></b>
                 <p class="blockquote">
                 <p class="mb-0"><?= $bl['noi_dung'] ?></p>
                 </p>

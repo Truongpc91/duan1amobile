@@ -23,8 +23,7 @@
                     <a class="nav-link text-black" href="index.php?act=sanpham">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black" href="index.php?act=gioithieu">Giới
-                        thiệu</a>
+                    <a class="nav-link text-black" href="index.php?act=gioithieu">Giới thiệu</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-black" href="index.php?act=gioithieu">Bài viết</a>
