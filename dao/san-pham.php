@@ -46,29 +46,29 @@ function san_pham_select_by_id($id_sanpham){
 }
 
 
-function hang_hoa_select_top10(){
-    $sql = "SELECT * FROM hang_hoa WHERE so_luot_xem > 0 ORDER BY don_gia ASC LIMIT 0, 4";
+function san_pham_select_top10(){
+    $sql = "SELECT * FROM san_pham WHERE id_sanpham > 0 ORDER BY id_sanpham DESC LIMIT 0, 10";
     return pdo_query($sql);
 }
 
-function san_pham_select_by_loai($id_sanpham){
-    $sql = "SELECT * FROM san_pham WHERE id_sanpham=$id_sanpham";
+function san_pham_select_by_loai($id_dm){
+    $sql = "SELECT * FROM san_pham WHERE id_dm=$id_dm";
     return pdo_query($sql);
 }
 
-function san_pham_select_cung_loai($ma_loai){
-    $sql = "SELECT * FROM hang_hoa WHERE ma_loai ='$ma_loai'";
+function san_pham_select_cung_loai($id_dm){
+    $sql = "SELECT * FROM san_pham WHERE id_dm ='$id_dm'";
     return pdo_query($sql);
 }
 
-function hang_hoa_select_keyword($keyword){
-    $sql = "SELECT * FROM hang_hoa hh "
-            . " JOIN loai lo ON lo.ma_loai=hh.ma_loai "
-            . " WHERE ten_hh LIKE ? OR ten_loai LIKE ?";
+function san_pham_select_keyword($keyword){
+    $sql = "SELECT * FROM san_pham hh "
+            . " JOIN danh_muc lo ON lo.id_dm=hh.id_dm "
+            . " WHERE ten_sanpham LIKE ? OR ten_dm LIKE ?";
     return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
 }
 
-function hang_hoa_select_page(){
+function san_pham_select_page(){
     if(!isset($_SESSION['page_no'])){
         $_SESSION['page_no'] = 0;
     }
@@ -85,6 +85,6 @@ function hang_hoa_select_page(){
     // if($_SESSION['page_no'] >= $_SESSION['page_count']){
     //     $_SESSION['page_no'] = 0;
     // }
-    $sql = "SELECT * FROM hang_hoa ORDER BY so_luot_xem LIMIT ".$_SESSION['page_no'].", 9";
+    $sql = "SELECT * FROM san_pham ORDER BY id_sanpham LIMIT ".$_SESSION['page_no'].", 9";
     return pdo_query($sql);
 }
