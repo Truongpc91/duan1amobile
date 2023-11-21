@@ -61,6 +61,29 @@
                 }
                 include 'view/trang-chinh/sanpham.php';
                 break;
+            case 'sanphamct':
+                if(isset($_GET['id_sanpham']) && ($_GET['id_sanpham']>0)) {
+                    $id_sanpham = $_GET['id_sanpham'];
+                    $_SESSION['product'] = $id_sanpham;
+                    $onesp = san_pham_select_by_id($id_sanpham);
+                    extract($onesp);
+                    $id_dm = $onesp['id_dm'];
+                    $sp_cung_loai = san_pham_select_cung_loai($id_dm); 
+                    $binh_luan_list = binh_luan_select_by_san_pham($id_sanpham);
+                    include 'view/san-pham/san-pham-chi-tiet.php';
+                }else if(isset($_POST['binhluan'])){
+                    $ten_dang_nhap = $_SESSION['user']['ten_dang_nhap'];
+                    $noi_dung = $_POST['noi_dung'];
+                    $ngay_bl = date("Y/m/d");
+                    binh_luan_insert($ten_dang_nhap, $_SESSION['product'], $noi_dung, $ngay_bl);
+                    $onesp = san_pham_select_by_id($_SESSION['product']);
+                    extract($onesp);
+                    $hh_cung_loai = hang_hoa_select_cung_loai($ma_loai, $_SESSION['product']); 
+                    $binh_luan_list = binh_luan_select_by_hang_hoa($_SESSION['product']);
+                    include 'view/san-pham/san-pham-chi-tiet.php';
+                    include 'view/san-pham/san-pham-cung-loai.php';
+                    }
+                    break;
             case 'lienhe':
                 include 'view/trang-chinh/lienhe.php';
                 break;

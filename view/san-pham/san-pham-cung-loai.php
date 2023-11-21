@@ -3,13 +3,12 @@
         <div class="col-sm">
             <div class="card">
                 <div class="card-header bg-primary text-white text-uppercase text-center">
-                    <i class="fas fa-heart"></i> Top 10 yêu thích
+                    <i class="fas fa-heart"></i> Sản Phẩm Cùng Loại
                 </div>
                 <div class="card-body">
                     <div class="row">
-                    <?php $listtop10 = san_pham_select_top10(); ?>
-                    <?php foreach ($listtop10 as $sanpham) {
-                                extract($sanpham);
+                    <?php foreach ($sp_cung_loai as $sp_cl) {
+                                extract($sp_cl);
                                 $linksp = "index.php?act=sanphamct&id_sanpham=".$id_sanpham;
                                 $img = 'uploads/'.$anh_sanpham;
                                 echo '<div class="col-12 col-md-6 col-lg-3 mt-3">
@@ -39,8 +38,7 @@
                                     </div>
  				                </div>
                             </div>';
-                    } ?>
-                        
+                    } ?>  
                     </div>
                 </div>
             </div>
