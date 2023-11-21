@@ -90,7 +90,8 @@
             case 'gioithieu':
                 include 'view/trang-chinh/gioithieu.php';
                 break;
-            
+            case 'dangnhap':
+                break;
             default:
                 include 'view/trang-chinh/slideshow.php';
                 include 'view/trang-chinh/home.php';
