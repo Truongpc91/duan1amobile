@@ -36,8 +36,9 @@
             <div class="widgets-wrap float-md-right ml-4">
                 <!-- Cart -->
                 <div class="widget-header  mr-3">
-                    <a href="cart.php" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart primary-color"></i></a>
+                    <a href="index.php?act=cart" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart primary-color"></i></a>
                 </div>
+    
                 <!-- User -->
                 <div class="dropdown widget-header icontext">
                     <a href="#" class="icon icon-sm rounded-circle border" id="dropdownMenu1" data-toggle="dropdown"
