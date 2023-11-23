@@ -309,6 +309,7 @@ body {
 .card {
     margin-bottom: 15px;
     box-shadow: rgba(35, 46, 60, 0.04) 0 2px 4px 0;
+    
 }
 
 .card .content {

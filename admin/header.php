@@ -106,11 +106,14 @@
 /* ==========================sidebar-=========================== */
 #sidebar {
     min-width: 250px;
-    max-width: 100%;
+    width: 20%;
+    height: auto;
     background: #fff;
     color: #fff;
     transition: all 0.3s;
     border-right: 1px solid #e6ecf5;
+    float: left;
+    
 }
 
 #sidebar.active {
@@ -219,6 +222,7 @@ body {
 #body {
     width: 100%;
     padding: 0;
+    margin: 0;
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -582,91 +586,98 @@ table.dataTable > tbody > tr.child ul.dtr-details {
         flex-direction: row;
     }
 }
+.row, .container mt-3 {
+    width: 80%;
+    
+    float: left;
+}
+
 
 </style>
 
 <body>
     <nav id="sidebar">
-    <div class="sidebar-header">
-        <a href="../index.php">
-            <img src="../uploads/Logo.png" alt="logo" class="img-fluid logo" width="80">
-        </a>
-    </div>
-    <ul class="list-unstyled components text-secondary">
-        <li>
-            <a href="../index.php"><i class="fas fa-store"></i>Xem trang web</a>
-        </li>
-        <li>
-            <a href="../index.php"><i class="fas fa-home"></i>Trang chủ</a>
-        </li>
-        <!-- Danh mục -->
-        <li>
-            <a href="#categories" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-list-alt"></i>Danh mục
-                <i class="fas fa-angle-right float-xl-right"></i>
+        <div class="sidebar-header">
+            <a href="../index.php">
+                <img src="../uploads/Logo.png" alt="logo" class="img-fluid logo" width="80">
             </a>
-            <ul class="collapse list-unstyled" id="categories">
-                <li>
-                    <a href="index.php?act=adddm">
-                        <i class="fas fa-plus"></i>Thêm Danh Mục</a>
-                </li>
-                <li>
-                    <a href="index.php?act=listdanhmuc">
-                        <i class="fas fa-list-ul"></i>Danh sách danh mục</a>
-                </li>
-            </ul>
-        </li>
-        <!-- Sản phẩm -->
-        <li>
-            <a href="#products" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-table"></i>Sản phẩm
-                <i class="fas fa-angle-right float-xl-right"></i>
-            </a>
-            <ul class="collapse list-unstyled" id="products">
-                <li>
-                    <a href="index.php?act=addsanpham"><i class="fas fa-plus"></i>Thêm sản phẩm</a>
-                </li>
-                <li>
-                    <a href="index.php?act=listsanpham">
-                        <i class="fas fa-list-ul"></i>Danh sách sản phẩm</a>
-                </li>
-            </ul>
-        </li>
-        <!-- Khách hàng -->
-        <li>
-            <a href="#accounts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                <i class="fas fa-user-friends"></i>Người Dùng
-                <i class="fas fa-angle-right float-xl-right"></i>
-            </a>
-            <ul class="collapse list-unstyled" id="accounts">
-                <li>
-                    <a href="index.php?act=addkhachhang"><i class="fas fa-plus"></i>Thêm người dùng</a>
-                </li>
-                <li>
-                    <a href="index.php?act=listuser">
-                        <i class="fas fa-list-ul"></i>Danh sách người dùng</a>
-                </li>
-            </ul>
-        </li>
+        </div>
+        <ul class="list-unstyled components text-secondary">
+            <li>
+                <a href="../index.php"><i class="fas fa-store"></i>Xem trang web</a>
+            </li>
+            <li>
+                <a href="../index.php"><i class="fas fa-home"></i>Trang chủ</a>
+            </li>
+            <!-- Danh mục -->
+            <li>
+                <a href="#categories" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-list-alt"></i>Danh mục
+                    <i class="fas fa-angle-right float-xl-right"></i>
+                </a>
+                <ul class="collapse list-unstyled" id="categories">
+                    <li>
+                        <a href="index.php?act=adddm">
+                            <i class="fas fa-plus"></i>Thêm Danh Mục</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=listdanhmuc">
+                            <i class="fas fa-list-ul"></i>Danh sách danh mục</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- Sản phẩm -->
+            <li>
+                <a href="#products" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-table"></i>Sản phẩm
+                    <i class="fas fa-angle-right float-xl-right"></i>
+                </a>
+                <ul class="collapse list-unstyled" id="products">
+                    <li>
+                        <a href="index.php?act=addsanpham"><i class="fas fa-plus"></i>Thêm sản phẩm</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=listsanpham">
+                            <i class="fas fa-list-ul"></i>Danh sách sản phẩm</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- Khách hàng -->
+            <li>
+                <a href="#accounts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
+                    <i class="fas fa-user-friends"></i>Người Dùng
+                    <i class="fas fa-angle-right float-xl-right"></i>
+                </a>
+                <ul class="collapse list-unstyled" id="accounts">
+                    <li>
+                        <a href="index.php?act=addkhachhang"><i class="fas fa-plus"></i>Thêm người dùng</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=listuser">
+                            <i class="fas fa-list-ul"></i>Danh sách người dùng</a>
+                    </li>
+                </ul>
+            </li>
 
-         <!-- Đơn Hàng -->
-         <li>
-            <a href="#donhangs" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                <i class="fas fa-user-friends"></i>Đơn hàng
-                <i class="fas fa-angle-right float-xl-right"></i>
-            </a>
-            <ul class="collapse list-unstyled" id="donhang">
-                <li>
-                    <a href="index.php?act=listkhachhang">
-                        <i class="fas fa-list-ul"></i>Danh sách đơn hàng</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="index.php?act=listbinhluan"> <i class="fas fa-comments"></i>Bình luận</a>
-        </li>
-        <li>
-            <a href="index.php?act=thongke"><i class="fas fa-chart-line"></i></i>Thống kê</a>
-        </li>
-        <li>
-            <a href="settings.html"><i class="fas fa-cog"></i>Cài đặt</a>
-        </li>
-    </ul>
+            <!-- Đơn Hàng -->
+            <li>
+                <a href="#donhangs" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
+                    <i class="fas fa-user-friends"></i>Đơn hàng
+                    <i class="fas fa-angle-right float-xl-right"></i>
+                </a>
+                <ul class="collapse list-unstyled" id="donhang">
+                    <li>
+                        <a href="index.php?act=listkhachhang">
+                            <i class="fas fa-list-ul"></i>Danh sách đơn hàng</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.php?act=listbinhluan"> <i class="fas fa-comments"></i>Bình luận</a>
+            </li>
+            <li>
+                <a href="index.php?act=thongke"><i class="fas fa-chart-line"></i></i>Thống kê</a>
+            </li>
+            <li>
+                <a href="settings.html"><i class="fas fa-cog"></i>Cài đặt</a>
+            </li>
+        </ul>
+    </nav>
