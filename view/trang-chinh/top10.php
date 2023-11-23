@@ -33,8 +33,13 @@
                                             </div>
                                         </div>
                                         <div class="col m-2">
-                                            <a href=""
-                                                class="btn btn-outline-primary btn-sm">Add to cart</a>
+                                            <form action="index.php?act=addtocart" method="POST">
+                                                <input type="hidden" name="id_sanpham" value="'.$id_sanpham.'">
+                                                <input type="hidden" name="ten_sanpham" value="'.$ten_sanpham.'">
+                                                <input type="hidden" name="anh_sanpham" value="'.$anh_sanpham.'">
+                                                <input type="hidden" name="gia" value="'.$gia.'">
+                                                <input type="submit" name="addtocart" value="ADD TO CART"  class=" btn btn-outline-primary btn-sm"/> 
+                                            </form>
                                         </div>
                                     </div>
  				                </div>

@@ -29,6 +29,9 @@
     include 'dao/danh-muc.php';
     include 'dao/user.php';
     include 'dao/binh-luan.php';
+    include 'dao/cart.php';
+
+    if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
 
     if(isset($_GET['act']) && ($_GET['act']!='')) {
         $act = $_GET['act'];
@@ -171,6 +174,67 @@
                         location.href='http://localhost:/duan1amobile';
                         </script>";
                     break;
+                
+            case 'cart' :
+                include 'view/cart/cart.php';
+                break;       
+
+            case 'addtocart':
+                if(isset($_POST['addtocart']) && ($_POST['addtocart'])){
+                    $id_sanpham = $_POST['id_sanpham'];
+                    $ten_sanpham = $_POST['ten_sanpham'];
+                    $anh_sanpham = $_POST['anh_sanpham'];
+                    $gia = $_POST['gia'];
+                    $soluong = 1;
+                    $tongtien = $gia * $soluong;
+                    $sanphamadd = [$id_sanpham,$ten_sanpham,$anh_sanpham,$gia,$soluong,$tongtien];
+                    array_push($_SESSION['mycart'],$sanphamadd);
+                }
+                include 'view/cart/cart.php';
+                break;
+
+            case 'xoacart':
+                if(isset($_GET['idcart'])) {
+                    array_splice($_SESSION['mycart'],$_GET['idcart'],1);
+                }else {
+                    $_SESSION['mycart'] = [];
+                }
+                include 'view/cart/cart.php';
+                // header('location: index.php');
+                break; 
+                
+            case 'dathang' :
+                include 'view/cart/hoa-don.php';
+                break;
+            
+            case 'confirmhoadon' :
+                if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
+
+                    $ten_bill = $_POST['ten_bill'];
+                    $bill_email = $_POST['bill_email'];
+                    $so_dien_thoai_bill = $_POST['so_dien_thoai_bill'];
+                    $pttt = $_POST['phuong_thuc_tt'];
+                    $dia_chi_bill = $_POST['dia_chi_bill'];
+                    $ngay_dat_hang = date('d/m/Y');
+                    $tong_gia = tongdonhang(); 
+
+                    $idhoadon = insert_hoa_don($ten_bill, $bill_email, $so_dien_thoai_bill, $dia_chi_bill, $tong_gia, $pttt, $ngay_dat_hang);
+
+                   //insert into cart : Lấy dữ liệu từ session['mycart'] và idhoadon
+
+                   foreach ($_SESSION['mycart'] as $cart) {
+                        insert_cart($_SESSION['user']['ten_dang_nhap'],$cart[0],$cart[2],$cart[3],$cart[4],$cart[5],$idhoadon);
+                   }
+                   
+                   unset($_SESSION['mycart']);
+                }
+                $hoadon = hoa_don_select_by_id($idhoadon);
+                include 'view/cart/hoa-don-comfirm.php';
+                break;
+
+                case 'xemhoadon':
+                    // $liscart = cart_select_by_id($_SESSION['user']['ten_dang_nhap']);
+                    break;
             default:
                 include 'view/trang-chinh/slideshow.php';
                 include 'view/trang-chinh/home.php';
@@ -192,4 +256,4 @@
     <script src="js/jquery.validate.js"></script>
     <script src="js/main.js"></script>
     <script src="js/validation.js"></script>
->>>>>>> d9cf1f162b1fe5489cb1f83a4607b01575db578c
+

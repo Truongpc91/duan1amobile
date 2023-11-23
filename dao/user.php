@@ -2,7 +2,7 @@
 require_once 'pdo.php';
 
 function user_add($ten_dang_nhap, $mat_khau, $ten_user, $vai_tro, $kich_hoat, $email, $so_dien_thoai, $dia_chi, $anh_user ){
-    $sql = "INSERT INTO user(ten_dang_nhap, mat_khau, ten_user, vai_tro, kich_hoat, email, so_dien_thoai, dia_chi, anh_user ) VALUES ('$ten_dang_nhap', '$mat_khau', '$ten_user', '$vai_tro', '$kich_hoat', '$email', '$so_dien_thoai', '$dia_chi', '$anh_user')";
+    $sql = "INSERT INTO user(ten_dang_nhap, mat_khau, ten_user, vai_tro, kich_hoat, email, so_dien_thoai, dia_chi, anh_user ) VALUES ('$ten_dang_nhap', '$mat_khau', '$ten_user', '0', '$kich_hoat', '$email', '$so_dien_thoai', '$dia_chi', '$anh_user')";
     pdo_execute($sql);
 }
 

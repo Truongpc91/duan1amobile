@@ -33,6 +33,8 @@
                     Ảnh đại diện<input type="file" name="anh_user" id="anh_user" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <input type="hidden" name="vai_tro" value="0">
+                    <input type="hidden" name="kich_hoat" value="1">
                     <input type="submit" name="dangky" value="Đăng Ký" class="btn btn-primary btn-block">
                     <input type="reset" value="Nhập Lại" class="btn btn-primary btn-block">
                 </div>
