@@ -29,6 +29,7 @@
     include 'dao/danh-muc.php';
     include 'dao/user.php';
     include 'dao/binh-luan.php';
+    include 'dao/cart.php';
 
     if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
 
@@ -203,9 +204,37 @@
                 break; 
                 
             case 'dathang' :
-                
-                include 'view/cart/form-dat-hang.php';
+                include 'view/cart/hoa-don.php';
                 break;
+            
+            case 'confirmhoadon' :
+                if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
+
+                    $ten_bill = $_POST['ten_bill'];
+                    $bill_email = $_POST['bill_email'];
+                    $so_dien_thoai_bill = $_POST['so_dien_thoai_bill'];
+                    $pttt = $_POST['phuong_thuc_tt'];
+                    $dia_chi_bill = $_POST['dia_chi_bill'];
+                    $ngay_dat_hang = date('d/m/Y');
+                    $tong_gia = tongdonhang(); 
+
+                    $idhoadon = insert_hoa_don($ten_bill, $bill_email, $so_dien_thoai_bill, $dia_chi_bill, $tong_gia, $pttt, $ngay_dat_hang);
+
+                   //insert into cart : Lấy dữ liệu từ session['mycart'] và idhoadon
+
+                   foreach ($_SESSION['mycart'] as $cart) {
+                        insert_cart($_SESSION['user']['ten_dang_nhap'],$cart[0],$cart[2],$cart[3],$cart[4],$cart[5],$idhoadon);
+                   }
+                   
+                   unset($_SESSION['mycart']);
+                }
+                $hoadon = hoa_don_select_by_id($idhoadon);
+                include 'view/cart/hoa-don-comfirm.php';
+                break;
+
+                case 'xemhoadon':
+                    // $liscart = cart_select_by_id($_SESSION['user']['ten_dang_nhap']);
+                    break;
             default:
                 include 'view/trang-chinh/slideshow.php';
                 include 'view/trang-chinh/home.php';
