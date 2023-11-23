@@ -36,8 +36,9 @@
             <div class="widgets-wrap float-md-right ml-4">
                 <!-- Cart -->
                 <div class="widget-header  mr-3">
-                    <a href="cart.php" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart primary-color"></i></a>
+                    <a href="index.php?act=cart" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart primary-color"></i></a>
                 </div>
+    
                 <!-- User -->
                 <div class="dropdown widget-header icontext">
                     <a href="#" class="icon icon-sm rounded-circle border" id="dropdownMenu1" data-toggle="dropdown"
@@ -64,10 +65,11 @@
                             <?php
                             if (isset($_SESSION['user'])) { ?>
 
-                            <?php if ($_SESSION['user']['vai_tro'] == 1) { ?>
+                            <?php if ($_SESSION['user']['vai_tro'] == 0) { ?>
                             <a class="dropdown-item pl-3 py-2" href="admin">Quản trị admin</a>
                             <?php }  ?>
-
+                            <a class="dropdown-item pl-3 py-2"
+                                href="index.php?act=xemhoadon">Xem hóa đơn</a>   
                             <a class="dropdown-item pl-3 py-2"
                                 href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
                             <a class="dropdown-item pl-3 py-2" href="index.php?act=edit_matkhau">Đổi mật khẩu</a>

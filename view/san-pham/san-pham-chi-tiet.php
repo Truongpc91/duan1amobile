@@ -38,7 +38,7 @@
                         </div>
                     </div>
 
-                    <form method="get" action="cart.html">
+                    <form method="POST" action="index.php?act=addtocart">
 
                         <div class="form-group">
                             <label>Số lượng :</label>
@@ -59,9 +59,13 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="cart.html" class="btn btn-danger btn-lg btn-block text-uppercase">
-                            <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
-                        </a>
+                        <div class="col m-2">  
+                                        <input type="hidden" name="id_sanpham" value="<?=$id_sanpham?>">
+                                        <input type="hidden" name="ten_sanpham" value="<?=$ten_sanpham?>">
+                                        <input type="hidden" name="anh_sanpham" value="<?=$anh_sanpham?>">
+                                        <input type="hidden" name="gia" value="<?=$gia?>">
+                                        <input type="submit" name="addtocart" value="THÊM VÀO GIỎ HÀNG"  class="btn btn-danger btn-lg btn-block text-uppercase"/ >   
+                             </div>
                     </form>
                     <div class="product_rassurance">
                         <ul class="list-inline">
