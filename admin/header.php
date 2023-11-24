@@ -586,10 +586,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
         flex-direction: row;
     }
 }
-.row, .container mt-3 {
+.row, .container mt-3{
     width: 80%;
     
     float: left;
+}
+
+.rows {
+    margin-left:400px;
 }
 
 
@@ -607,7 +611,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
                 <a href="../index.php"><i class="fas fa-store"></i>Xem trang web</a>
             </li>
             <li>
-                <a href="../index.php"><i class="fas fa-home"></i>Trang chủ</a>
+                <a href="index.php?act=trangchu"><i class="fas fa-home"></i>Trang chủ</a>
             </li>
             <!-- Danh mục -->
             <li>
@@ -660,7 +664,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
             <!-- Đơn Hàng -->
             <li>
                 <a href="#donhangs" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                    <i class="fas fa-user-friends"></i>Đơn hàng
+                <i class="fas fa-shipping-fast"></i>Đơn hàng
                     <i class="fas fa-angle-right float-xl-right"></i>
                 </a>
                 <ul class="collapse list-unstyled" id="donhang">

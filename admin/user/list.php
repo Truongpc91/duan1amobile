@@ -26,7 +26,7 @@
                     <?php 
                         foreach ($listuser as $user) {
                             extract($user);
-                            $suauser = "index.php?act=suakhachhang&id=".$ma_kh;
+                            $suauser = "index.php?act=suauser&id=".$ten_dang_nhap;
                             $hinhpath = "../uploads/".$anh_user;
                             if(is_file($hinhpath)) {
                                 $anh_user = "<img src='".$hinhpath."' height='80'>";

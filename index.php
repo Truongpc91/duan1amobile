@@ -210,7 +210,8 @@
             case 'confirmhoadon' :
                 if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
 
-                    $ten_bill = $_POST['ten_bill'];
+                    // $ten_bill = $_POST['ten_bill'];
+                    $ten_bill = bin2hex(random_bytes(3));
                     $bill_email = $_POST['bill_email'];
                     $so_dien_thoai_bill = $_POST['so_dien_thoai_bill'];
                     $pttt = $_POST['phuong_thuc_tt'];

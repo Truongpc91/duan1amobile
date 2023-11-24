@@ -1,3 +1,4 @@
+<div class="row">
 <div class="container">
     <div class="page-title">
       <div class="card-header text-center bg-dark text-white ">Danh Sách Danh Mục</div>
@@ -38,4 +39,5 @@
             </form>
         </div>
     </div>
+</div>
 </div>

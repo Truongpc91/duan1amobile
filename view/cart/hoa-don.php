@@ -17,8 +17,8 @@
     style="margin-top: 5rem; margin-bottom: 0rem">Thông tin nhận hàng</h5>
 <form action="index.php?act=confirmhoadon" method="POST" class="col-9 m-auto"><br>
 <div class="form-group form">
-            <label for="">Họ và tên</label>
-            <input type="text" name="ten_bill" id="" class="form-control rounded-pill" value="<?=$ten_user?>"
+            <label for="">Tên Hóa Đơn</label>
+            <input type="text" name="ten_bill" id="" class="form-control rounded-pill" 
                 aria-describedby="helpId">
         </div>
         <div class="form-group">
