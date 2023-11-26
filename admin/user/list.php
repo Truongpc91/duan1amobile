@@ -26,7 +26,7 @@
                     <?php 
                         foreach ($listuser as $user) {
                             extract($user);
-                            $suauser = "index.php?act=suakhachhang&id=".$ma_kh;
+                            $suauser = "index.php?act=suauser&id=".$ten_dang_nhap;
                             $hinhpath = "../uploads/".$anh_user;
                             if(is_file($hinhpath)) {
                                 $anh_user = "<img src='".$hinhpath."' height='80'>";
@@ -36,8 +36,8 @@
                             $checkvaitro;
                             $checkkichhoat;
                             //Kiểm tra vai trò
-                            if ($vai_tro == 1){
-                                $checkvaitro = "Nhân viên";
+                            if ($vai_tro == 0){
+                                $checkvaitro = "Quản trị";
                             }else {
                                 $checkvaitro =  "Khách hàng";
                             }

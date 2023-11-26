@@ -47,7 +47,7 @@ function san_pham_select_by_id($id_sanpham){
 
 
 function san_pham_select_top10(){
-    $sql = "SELECT * FROM san_pham WHERE id_sanpham > 0 ORDER BY id_sanpham DESC LIMIT 0, 10";
+    $sql = "SELECT * FROM san_pham WHERE id_sanpham > 0 ORDER BY id_sanpham DESC LIMIT 0, 8";
     return pdo_query($sql);
 }
 

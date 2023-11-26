@@ -210,7 +210,8 @@
             case 'confirmhoadon' :
                 if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
 
-                    $ten_bill = $_POST['ten_bill'];
+                    // $ten_bill = $_POST['ten_bill'];
+                    $ten_bill = bin2hex(random_bytes(3));
                     $bill_email = $_POST['bill_email'];
                     $so_dien_thoai_bill = $_POST['so_dien_thoai_bill'];
                     $pttt = $_POST['phuong_thuc_tt'];
@@ -233,7 +234,8 @@
                 break;
 
                 case 'xemhoadon':
-                    // $liscart = cart_select_by_id($_SESSION['user']['ten_dang_nhap']);
+                    $listhoadon = hoa_don_select_by_id_user($_SESSION['user']['email']);
+                    include 'view/cart/xem-hoa-don.php';
                     break;
             default:
                 include 'view/trang-chinh/slideshow.php';

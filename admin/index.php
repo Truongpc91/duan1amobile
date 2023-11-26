@@ -7,13 +7,22 @@
     include '../dao/user.php';
     include '../dao/thong-ke.php';
     include '../dao/binh-luan.php';
-
+    include '../dao/hoa-don.php';
+   
     //controler 
 
     if(isset($_GET['act'])) {
         $act = $_GET['act'];
        switch ($act) {
 
+        case 'trangchu':
+            $countdm = count(danh_muc_select_all());
+            $countsanpham = count(san_pham_select_all());
+            $countuser = count(user_select_all());
+            $countbinhluan = count(binh_luan_select_all());
+
+            include 'trang-chinh.php';
+            break;
         //DANH MỤC
         case 'adddm':
             //kiểm tra xem người dùng có nhấm add hay không 
@@ -162,8 +171,40 @@
             $listuser = user_select_all();
             include 'user/list.php';
             break;
-        }
+        
+        case 'listbinhluan' :
+            $listbinhluan = thong_ke_binh_luan();
+            include 'binh-luan/list.php';
+            break;
+        case 'listblct' :
+            if(isset($_GET['id_sanpham'])){
+                $listbinhluanct = binh_luan_select_by_san_pham($_GET['id_sanpham']);
+            }
+            include 'binh-luan/list-chi-tiet.php';
+            break;
+            
+        case 'xoabinhluan' :
+            if(isset($_GET['id_binh_luan'])){
+                binh_luan_delete($_GET['id_binh_luan']);
+                echo "<script>
+                alert('Đã Xóa Thành Công!!!'); 
+                location.href='http://localhost/duan1amobile/admin/index.php?act=listbinhluan';
+                </script>";
+            }
+            $listbinhluan = thong_ke_binh_luan();
+            include 'binh-luan/list.php';
+            break;
 
+        case 'listhoadon' :
+            $listhoadon = hoa_don_select_all();
+            include 'hoa-don/list.php';
+            break;    
+        case 'thongke' :
+            $listthongke = thong_ke_san_pham();
+            include 'thong-ke/list.php';
+            break;
+       }
+       
     }else {
             include 'home.php';
         }
