@@ -234,7 +234,8 @@
                 break;
 
                 case 'xemhoadon':
-                    // $liscart = cart_select_by_id($_SESSION['user']['ten_dang_nhap']);
+                    $listhoadon = hoa_don_select_by_id_user($_SESSION['user']['email']);
+                    include 'view/cart/xem-hoa-don.php';
                     break;
             default:
                 include 'view/trang-chinh/slideshow.php';

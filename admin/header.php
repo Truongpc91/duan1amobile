@@ -661,16 +661,16 @@ table.dataTable > tbody > tr.child ul.dtr-details {
                 </ul>
             </li>
 
-            <!-- Đơn Hàng -->
+            <!-- Hóa Đơn -->
             <li>
-                <a href="#donhangs" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                <i class="fas fa-shipping-fast"></i>Đơn hàng
+                <a href="#hoadon" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
+                <i class="fas fa-shipping-fast"></i>Hóa đơn
                     <i class="fas fa-angle-right float-xl-right"></i>
                 </a>
-                <ul class="collapse list-unstyled" id="donhang">
+                <ul class="collapse list-unstyled" id="hoadon">
                     <li>
-                        <a href="index.php?act=listkhachhang">
-                            <i class="fas fa-list-ul"></i>Danh sách đơn hàng</a>
+                        <a href="index.php?act=listhoadon">
+                            <i class="fas fa-list-ul"></i>Danh sách hóa đơn</a>
                     </li>
                 </ul>
             </li>

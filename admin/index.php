@@ -7,6 +7,7 @@
     include '../dao/user.php';
     include '../dao/thong-ke.php';
     include '../dao/binh-luan.php';
+    include '../dao/hoa-don.php';
    
     //controler 
 
@@ -181,6 +182,7 @@
             }
             include 'binh-luan/list-chi-tiet.php';
             break;
+            
         case 'xoabinhluan' :
             if(isset($_GET['id_binh_luan'])){
                 binh_luan_delete($_GET['id_binh_luan']);
@@ -193,6 +195,10 @@
             include 'binh-luan/list.php';
             break;
 
+        case 'listhoadon' :
+            $listhoadon = hoa_don_select_all();
+            include 'hoa-don/list.php';
+            break;    
         case 'thongke' :
             $listthongke = thong_ke_san_pham();
             include 'thong-ke/list.php';

@@ -36,8 +36,8 @@
                             $checkvaitro;
                             $checkkichhoat;
                             //Kiểm tra vai trò
-                            if ($vai_tro == 1){
-                                $checkvaitro = "Nhân viên";
+                            if ($vai_tro == 0){
+                                $checkvaitro = "Quản trị";
                             }else {
                                 $checkvaitro =  "Khách hàng";
                             }
