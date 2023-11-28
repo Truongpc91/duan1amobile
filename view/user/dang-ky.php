@@ -2,7 +2,7 @@
 <article class="card-body">
     <div class="boxtrain">
         <header class="mb-4">
-             <h4 class="card-title">Đăng ký</h4>
+             <h4 class="card-title text-center font-weight-bold">Đăng ký</h4>
          </header>
         <div class="boxcontent">
             <form action="index.php?act=dangky" method="post" enctype="multipart/form-data" >
