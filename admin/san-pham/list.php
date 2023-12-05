@@ -21,7 +21,7 @@
           <th>Hình</th>
           <th>Màu Sắc</th>
           <th>Dung Lượng</th>
-          <th>ID Danh Mục</th>
+          <th>Số lượng</th>
           <th><a href="index.php?act=addsanpham" class="btn btn-success text-white">Thêm mới
                                       <i class="fas fa-plus-circle"></i></a></th>
         </tr>
@@ -45,7 +45,7 @@
                       <td>'.$anh_sanpham.'</td>
                       <td>'.$color.'</td>
                       <td>'.$dung_luong.'</td>
-                      <td>'.$id_dm.'</td>
+                      <td>'.$so_luong.'</td>
                       <td>
                         <a href="'.$suasanpham.'"><input type="button" value="Sửa" class="btn btn-outline-secondary"></a>
                         <a href="'.$xoasanpham.'"><input type="button" value="Xóa" class="btn btn-outline-secondary"></a>

@@ -20,6 +20,15 @@
         $act = $_GET['act'];
        switch ($act) {
 
+        case 'dangxuat':
+            session_unset();
+            echo "<script>
+                alert('Đăng Xuất Thành Công!!!'); 
+                location.href='http://localhost:/duan1amobile';
+                </script>";
+            break;
+            break;
+
         case 'trangchu':
             $countdm = count(danh_muc_select_all());
             $countsanpham = count(san_pham_select_all());
@@ -139,7 +148,7 @@
                 $id_dm = $_POST['id_dm'];
                 $ten_sanpham = $_POST['ten_sanpham'];
                 $gia = $_POST['gia'];
-                $color = $_POST['color'];
+                $so_luong = $_POST['so_luong'];
                 $dung_luong = $_POST['dung_luong'];
                 $noi_dung = $_POST['noi_dung'];
                 $anh_sanpham = $_FILES['anh_sanpham']['name'];
@@ -150,7 +159,7 @@
                 } else {
                    // echo "Sorry, there was an error uploading your file.";
                 }
-                san_pham_update($id_sanpham, $ten_sanpham, $gia, $anh_sanpham, $color, $dung_luong, $noi_dung, $id_dm);
+                san_pham_update($id_sanpham, $ten_sanpham, $gia, $anh_sanpham, $so_luong, $dung_luong, $noi_dung, $id_dm);
                 echo "<script>
                 alert('Sửa Sản Phẩm Thành Công!!!'); 
                 location.href='http://localhost/duan1amobile/admin/index.php?act=listsanpham';

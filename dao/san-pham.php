@@ -7,11 +7,11 @@ function san_pham_insert($ten_sanpham, $gia, $anh_sanpham, $color, $dung_luong, 
 }
 
 
-function san_pham_update($id_sanpham, $ten_sanpham, $gia, $anh_sanpham, $color, $dung_luong, $noi_dung, $id_dm){
+function san_pham_update($id_sanpham, $ten_sanpham, $gia, $anh_sanpham, $so_luong, $dung_luong, $noi_dung, $id_dm){
     if($anh_sanpham != "") {
-        $sql = "UPDATE san_pham SET ten_sanpham='".$ten_sanpham."', anh_sanpham='".$anh_sanpham."', gia='".$gia."', color='".$color."', dung_luong='".$dung_luong."', noi_dung='".$noi_dung."', id_dm='".$id_dm."' WHERE id_sanpham=".$id_sanpham;
+        $sql = "UPDATE san_pham SET ten_sanpham='".$ten_sanpham."', anh_sanpham='".$anh_sanpham."', gia='".$gia."', so_luong='".$so_luong."', dung_luong='".$dung_luong."', noi_dung='".$noi_dung."', id_dm='".$id_dm."' WHERE id_sanpham=".$id_sanpham;
     }else {
-        $sql = "UPDATE san_pham SET ten_sanpham='".$ten_sanpham."', dung_luong='".$dung_luong."', gia='".$gia."', color='".$color."', noi_dung='".$noi_dung."', id_dm='".$id_dm."' WHERE id_sanpham=".$id_sanpham;
+        $sql = "UPDATE san_pham SET ten_sanpham='".$ten_sanpham."', dung_luong='".$dung_luong."', gia='".$gia."', so_luong='".$so_luong."', noi_dung='".$noi_dung."', id_dm='".$id_dm."' WHERE id_sanpham=".$id_sanpham;
     }
     pdo_execute($sql);
 }

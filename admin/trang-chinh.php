@@ -1,4 +1,4 @@
-<div class="rows">
+<div class="row">
 <div class="container">
     <div class="cards row mt-5">
     <h3 class="card-header text-center bg-dark text-white">TỔNG HỢP ĐẦU MỤC</h3>

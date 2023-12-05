@@ -263,6 +263,7 @@ body {
 }
 
 #body .content .page-title h3 {
+    /* margin-bottom: 500px; */
     margin: 1rem 0;
 }
 
@@ -590,119 +591,60 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     }
 }
 .row, .container mt-3{
-    width: 80%;
-    
-    float: left;
-}
+    width: 84%;
+    float: right;
+    margin-top:-700px;
+    margin-bottom:700px;
+    position: relative;
+} 
 
-.rows {
-    margin-left:400px;
-}
+.row{
+    /* margin-top:-700px;
+    margin-bottom:700px; */
+} 
 
 
 </style>
 
 <body>
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <a href="../index.php">
-                <img src="../uploads/Logo.png" alt="logo" class="img-fluid logo" width="80">
-            </a>
-        </div>
-        <ul class="list-unstyled components text-secondary">
-            <li>
-                <a href="../index.php"><i class="fas fa-store"></i>Xem trang web</a>
-            </li>
-            <li>
-                <a href="index.php?act=trangchu"><i class="fas fa-home"></i>Trang chủ</a>
-            </li>
-            <!-- Danh mục -->
-            <li>
-                <a href="#categories" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-list-alt"></i>Danh mục
-                    <i class="fas fa-angle-right float-xl-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="categories">
-                    <li>
-                        <a href="index.php?act=adddm">
-                            <i class="fas fa-plus"></i>Thêm Danh Mục</a>
-                    </li>
-                    <li>
-                        <a href="index.php?act=listdanhmuc">
-                            <i class="fas fa-list-ul"></i>Danh sách danh mục</a>
-                    </li>
-                </ul>
-            </li>
-            <!-- Sản phẩm -->
-            <li>
-                <a href="#products" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-table"></i>Sản phẩm
-                    <i class="fas fa-angle-right float-xl-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="products">
-                    <li>
-                        <a href="index.php?act=addsanpham"><i class="fas fa-plus"></i>Thêm sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="index.php?act=listsanpham">
-                            <i class="fas fa-list-ul"></i>Danh sách sản phẩm</a>
-                    </li>
-                </ul>
-            </li>
-            <!-- Khách hàng -->
-            <li>
-                <a href="#accounts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                    <i class="fas fa-user-friends"></i>Người Dùng
-                    <i class="fas fa-angle-right float-xl-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="accounts">
-                    <li>
-                        <a href="index.php?act=addkhachhang"><i class="fas fa-plus"></i>Thêm người dùng</a>
-                    </li>
-                    <li>
-                        <a href="index.php?act=listuser">
-                            <i class="fas fa-list-ul"></i>Danh sách người dùng</a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- Hóa Đơn -->
-            <li>
-                <a href="#hoadon" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                <i class="fas fa-shipping-fast"></i>Hóa đơn
-                    <i class="fas fa-angle-right float-xl-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="hoadon">
-                    <li>
-                        <a href="index.php?act=listhoadon">
-                            <i class="fas fa-list-ul"></i>Danh sách hóa đơn</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="index.php?act=listbinhluan"> <i class="fas fa-comments"></i>Bình luận</a>
-            </li>
-            <li>
-                <a href="#thongke" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
-                <i class="fas fa-chart-line"></i>Thống kê
-                    <i class="fas fa-angle-right float-xl-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="thongke">
-                    <li>
-                        <a href="index.php?act=thongke">
-                            <i class="fas fa-list-ul"></i>Thống kê sản phẩm theo danh mục</a>
-                    </li>
-                    <li>
-                        <a href="index.php?act=thongkethunhap">
-                            <i class="fas fa-list-ul"></i>Thống kê thu nhập</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="settings.html"><i class="fas fa-cog"></i>Cài đặt</a>
-            </li>
-        </ul>
-    </nav>
-
-
+<div class="wrapper">
+            <?php
+                include 'menu.php';
+            ?>
+    <div id="body" class="active">
+            <!-- navbar navigation component -->
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fas fa-bars"></i><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?php
+                                    if (isset($_SESSION['user']) && $_SESSION['user']['anh_user'] != "") { ?>
+                                    <img src="../uploads/<?=$_SESSION['user']['anh_user'] ?>" width="30"
+                                        height="30" class="mb-2 object-fit-cover rounded-circle" alt="">
+                                    <?php } else { ?>
+                                    <i class="fa fa-user primary-color"></i>
+                                    <?php }  ?>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                                    <ul class="nav-list">
+                                        <li><a href="index.php?act=dangxuat" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>
+                                                Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            </div>
+           
+</div>  
     <!-- Moris Js -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>

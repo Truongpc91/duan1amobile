@@ -1,4 +1,4 @@
-
+<div class="row">
 <a>Thống kê thu nhập theo : <span><?php echo $text; ?></span></a><br>
 <form method="POST" action="index.php?act=thongkethunhap">
   <select class="select-date" aria-label="Default select example" name="date">
@@ -10,8 +10,8 @@
   <input type="submit" name="search" value="Xem">
 </form>
 
-<div id="chart" style="width:1000px; height: 250px; margin-left:400px;"></div>
-
+<div id="chart" style="width:1000px; height: 250px; margin-left:100px;"></div>
+</div>
   <script type="text/javascript">
     $(document).ready(function() {
       thongke();

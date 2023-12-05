@@ -3,7 +3,7 @@
         <div class="col-sm">
             <div class="card">
                 <div class="card-header bg-primary text-white text-uppercase text-center">
-                    <i class="fas fa-heart"></i> Top 10 yêu thích
+                    <i class="fas fa-heart"></i> Sản phẩm mới của cửa hàng
                 </div>
                 <div class="card-body">
                     <div class="row">

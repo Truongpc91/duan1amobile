@@ -29,7 +29,7 @@
                         if($trang_thai == 0){
                             $checktrangthai = "Đơn hàng mới";
                         }else if($trang_thai == 1) {
-                            $checktrangthai = "Đang xử lí";
+                            $checktrangthai = "Đã xác nhận";
                         }else if($trang_thai == 2) {
                             $checktrangthai = "Đang giao";
                         }else{

@@ -22,9 +22,7 @@
                     <!-- <input type="text" name="ngay_dat_hang" value="<?= $ngay_dat_hang ?>"> -->
                     <select name="trangthai" class="form-select">
                         <option value="0" >Đơn hàng mới</option>
-                        <option value="1" >Đang xử lí</option>
-                        <option value="2" >Đang giao</option>
-                        <option value="3" >Đã giao</option>
+                        <option value="1" >Xác nhận</option>
                             
                     </select><br>
                     <div class="mb-3 text-center">

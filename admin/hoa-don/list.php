@@ -1,4 +1,4 @@
-<div class="row">
+<div class="rows">
 <div class="container">
     <div class="page-title">
         <h3 class="card-header text-center bg-dark text-white">DANH SÁCH HÓA ĐƠN</h3>
@@ -41,7 +41,7 @@
                         if($trang_thai == 0){
                             $checktrangthai = "Đơn hàng mới";
                         }else if($trang_thai == 1) {
-                            $checktrangthai = "Đang xử lí";
+                            $checktrangthai = "Đã Xác nhận";
                         }else if($trang_thai == 2) {
                             $checktrangthai = "Đang giao";
                         }else{
@@ -54,12 +54,14 @@
                         <td><?= $bill_email ?></td>
                         <td><?= $so_dien_thoai_bill ?></td>
                         <td><?= $dia_chi_bill ?></td>
-                        <td><?= $tong_gia ?></td>
+                        <td><?= number_format($tong_gia) ?></td>
                         <td><?= $checkpttt ?></td>
                         <td><?= $checktrangthai ?></td>
                         <td><?= $ngay_dat_hang ?></td>
                         <td >
-                            <a href="<?= $suahoadon ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
+                            <?php if($pttt == 2 && $trang_thai == 0){ ?>
+                                <a href="<?= $suahoadon ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
+                            <?php }?>
                         </td>
                     </tr>
                     <?php

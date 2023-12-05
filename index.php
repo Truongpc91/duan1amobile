@@ -124,10 +124,19 @@
                     if($ten_dang_nhap!=''){
                         if(is_array($checkuser)){
                             $_SESSION['user'] = $checkuser;
-                            echo "<script>
-                            alert('Đăng Nhập Thành Công!!!'); 
-                            location.href='http://localhost:/duan1amobile';
-                            </script>";  
+                            $user = user_select_by_id($_SESSION['user']['ten_dang_nhap']);
+                            extract($user);
+                            if($user['vai_tro'] == 0){
+                                echo "<script>
+                                alert('Đăng Nhập Thành Công!!!'); 
+                                location.href='http://localhost:/duan1amobile/admin';
+                                </script>";  
+                            }else{
+                                echo "<script>
+                                alert('Đăng Nhập Thành Công!!!'); 
+                                location.href='http://localhost:/duan1amobile';
+                                </script>"; 
+                            } 
                         }else{
                             $thongbao = "<i style='color: red;'>Tài khoản hoặc mặt khẩu không tồn tại !!!</i>";
                         }

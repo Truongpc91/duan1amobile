@@ -44,8 +44,8 @@
                         <?=$anh_sanpham?>
                     </div>
                     <div class="mb-3">
-                        <label for="color" class="form-label">Màu Sắc :</label>
-                        <input type="color" class="form-control" id="color" placeholder="Màu Sắc" name="color" value="<?=$color?>"> 
+                        <label for="so_luong" class="form-label">Số lượng :</label>
+                        <input type="number" class="form-control" id="so_luong" placeholder="Số lượng" name="so_luong" value="<?=$so_luong?>"> 
                     </div>
                     <div class="mb-3">
                         <label for="dung_duong" class="form-label">Dung Lượng :</label>

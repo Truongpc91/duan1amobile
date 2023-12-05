@@ -49,7 +49,7 @@
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="text-center" id="quantity" name="quantity" min="1" max="100"
+                                <input type="text" class="text-center" id="quantity" name="quantity" max="10" min="1" 
                                     value="1" name="soluong">
                                 <div class="input-group-append">
                                     <button type="button" class="quantity-right-plus btn btn-success btn-number"
@@ -64,8 +64,15 @@
                                         <input type="hidden" name="ten_sanpham" value="<?=$ten_sanpham?>">
                                         <input type="hidden" name="anh_sanpham" value="<?=$anh_sanpham?>">
                                         <input type="hidden" name="gia" value="<?=$gia?>">
-                                        <input type="submit" name="addtocart" value="THÊM VÀO GIỎ HÀNG"  class="btn btn-danger btn-lg btn-block text-uppercase"/ >   
-                             </div>
+                                    <?php
+                                        if($so_luong > 0){
+                                           echo '<input type="submit" name="addtocart" value="THÊM VÀO GIỎ HÀNG"  class="btn btn-danger btn-lg btn-block text-uppercase"/ >' ;
+                                        }else{
+                                            echo '<a class="btn btn-secondary btn-lg btn-block text-uppercase">SẢN PHẨM HẾT HÀNG</a>';
+                                        }
+                                    ?>
+                                        <!-- <input type="submit" name="addtocart" value="THÊM VÀO GIỎ HÀNG"  class="btn btn-danger btn-lg btn-block text-uppercase"/ >    -->
+                         </div>
                     </form>
                     <div class="product_rassurance">
                         <ul class="list-inline">
