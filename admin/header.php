@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMobile</title>
+    <title>Admin - AMobile</title>
     <script src="https://kit.fontawesome.com/509cc166d7.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="css/dashboard.css" type="text/css">
     <!-- Font awesome -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
+    <!-- Moris js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
    
 </head>
 <style>
@@ -678,10 +681,28 @@ table.dataTable > tbody > tr.child ul.dtr-details {
                 <a href="index.php?act=listbinhluan"> <i class="fas fa-comments"></i>Bình luận</a>
             </li>
             <li>
-                <a href="index.php?act=thongke"><i class="fas fa-chart-line"></i></i>Thống kê</a>
+                <a href="#thongke" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down">
+                <i class="fas fa-chart-line"></i>Thống kê
+                    <i class="fas fa-angle-right float-xl-right"></i>
+                </a>
+                <ul class="collapse list-unstyled" id="thongke">
+                    <li>
+                        <a href="index.php?act=thongke">
+                            <i class="fas fa-list-ul"></i>Thống kê sản phẩm theo danh mục</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=thongkethunhap">
+                            <i class="fas fa-list-ul"></i>Thống kê thu nhập</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="settings.html"><i class="fas fa-cog"></i>Cài đặt</a>
             </li>
         </ul>
     </nav>
+
+
+    <!-- Moris Js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>

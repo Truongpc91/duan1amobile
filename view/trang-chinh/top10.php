@@ -27,9 +27,9 @@
                                         </h3>
                                         <div class="product-price">
                                             <div class="col d-flex justify-content-center align-items-center">
-                                                <del class="d-block fz-14">'.$gia.'đ </del>
+                                                <del class="d-block fz-14">'.number_format($gia).'đ </del>
                                                 <p class="text-danger font-weight-bold fz-20 d-block ml-3 mb-0">
-                                                '.$gia.'đ</p>
+                                                '.number_format($gia).'đ</p>
                                             </div>
                                         </div>
                                         <div class="col m-2">

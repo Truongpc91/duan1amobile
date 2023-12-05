@@ -68,7 +68,13 @@ function san_pham_select_keyword($keyword){
     return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
 }
 
+function san_pham_select_gia($gia){
+    $sql = "SELECT * FROM san_pham WHERE gia <= '$gia'";
+    return pdo_query($sql);
+}
+
 function san_pham_select_page(){
+    
     if(!isset($_SESSION['page_no'])){
         $_SESSION['page_no'] = 0;
     }
@@ -87,4 +93,10 @@ function san_pham_select_page(){
     // }
     $sql = "SELECT * FROM san_pham ORDER BY id_sanpham LIMIT ".$_SESSION['page_no'].", 9";
     return pdo_query($sql);
+}
+
+function san_pham_select_cart($idList){
+    $sql = "SELECT * FROM  san_pham WHERE id_sanpham IN ('.$idList.')";
+    $sanpham = pdo_query($sql);
+    return $sanpham;
 }

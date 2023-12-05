@@ -18,7 +18,7 @@
                  <!-- Danh mục -->
                  <div id="accordion" role="tablist">
                      <?php include 'view/san-pham/danh-muc.php'; ?>
-                     <?php include 'view/san-pham/top10sp.php'; ?>
+                     <?php include 'view/san-pham/tim-kiem-theo-gia.php'; ?>
                  </div>
              </div>
 

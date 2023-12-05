@@ -31,7 +31,7 @@
                 <p class="text-center mt-4">Bạn chưa có tài khoản? <a href="index.php?act=dangky">Đăng ký</a></p>
             </form>
             <?php 
-                if(isset($thongbao)&&($thongbao!="") ) { 
+                if(isset($thongbao)&&($thongbao!="")){ 
                     echo $thongbao;
                 } 
             ?>

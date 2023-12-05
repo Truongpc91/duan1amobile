@@ -1,7 +1,7 @@
 <div class="row">
 <div class="container">
     <div class="page-title">
-      <div class="card-header text-center bg-dark text-white ">Danh Sách Danh Mục</div>
+        <h4 class="mt-5 font-weight-bold text-center">DANH SÁCH DANH MỤC</h4>
     </div>
     <div class="box box-primary">
         <div class="box-body">

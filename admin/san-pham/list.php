@@ -1,15 +1,15 @@
 <div class = "row">
   <div class="container mt-3">
-    <h2>Danh Sách Sản phẩm</h2>
+      <h4 class="mt-5 font-weight-bold text-center">DANH SÁCH SẢN PHẨM</h4>
     <form action="index.php?act=listsanpham" method="POST">
-      <select name="id_dm" class="form-select">
+      <select name="id_dm" class="form-select" aria-label="Disabled select example" >
           <option value="0" selected>Tất Cả</option>
           <?php foreach($listdanhmuc as $danhmuc) {
               extract($danhmuc);
               echo '<option value="'.$id_dm.'">'.$ten_dm.'</option>'; 
           } ?>
       </select>
-      <input type="text" name="keyword" class="form-control">
+      <input type="search"  name="keyword" placeholder="Nhập từ khóa...">
       <input type="submit" value="OK" name="listok" class="btn btn-outline-secondary" >
     </form>
     <table class="table">
@@ -21,7 +21,6 @@
           <th>Hình</th>
           <th>Màu Sắc</th>
           <th>Dung Lượng</th>
-          <th>Nội Dung</th>
           <th>ID Danh Mục</th>
           <th><a href="index.php?act=addsanpham" class="btn btn-success text-white">Thêm mới
                                       <i class="fas fa-plus-circle"></i></a></th>
@@ -46,7 +45,6 @@
                       <td>'.$anh_sanpham.'</td>
                       <td>'.$color.'</td>
                       <td>'.$dung_luong.'</td>
-                      <td>'.$noi_dung.'</td>
                       <td>'.$id_dm.'</td>
                       <td>
                         <a href="'.$suasanpham.'"><input type="button" value="Sửa" class="btn btn-outline-secondary"></a>

@@ -42,10 +42,9 @@
             <input type="radio" name="phuong_thuc_tt" id="" value="1" placeholder="" aria-describedby="helpId"> Chuyển khoản ngân hàng
             <input type="radio" name="phuong_thuc_tt" id="" value="2" placeholder="" aria-describedby="helpId"> Ví điện tử
 <div class="row m-1 pb-5">
-        <table class="table table-responsive-md">
+    <table class="table table-responsive-md">
             <thead class="thead text-center">
                 <tr>
-                    <th>ID Sản Phẩm</th>
                     <th>Tên Sản Phẩm</th>
                     <th>Ảnh</th>
                     <th>Giá</th>
@@ -55,27 +54,25 @@
             </thead>
             <tbody class="text-center" id="giohang">
                 <?php 
-                    $tong = 0;
-                    foreach ($_SESSION['mycart'] as $cart) {
-                        $anh_sanpham = "uploads/".$cart[2];
-                        $ttien = $cart[3] * $cart[4];
-                        $tong+=$ttien;
+                     $tongtien = 0;
+                     foreach ($_SESSION['mycart'] as $row) {
+                         $anh_sanpham = "uploads/".$row['anh_sanpham'];
+                         $thanh_tien = $row['gia'] * $row['soluong'];
+                         $tongtien += $thanh_tien;
                     echo '<tr>
-                        <td>'.$cart[0].'</td>
-                        <td>'.$cart[1].'</td>
-                        <td><img src="'.$anh_sanpham.'" height="40px"></td>
-                        <td> <span>'.$cart[3].' đ</span></td>
-                        <td> <span>'.$cart[4].'</span></td>
-                        <td>'.$ttien.' đ</td>
+                        <td>'.$row['ten_sanpham'].'</td>
+                        <td><img src="'.$anh_sanpham.'" height="80px"></td>
+                        <td> <span>'.number_format($row['gia']).' đ</span></td>
+                        <td> <span>'.$row['soluong'].'</span></td>
+                        <td>'.number_format($thanh_tien).' đ</td>
                     </tr>';
+                        
                     }
                 echo '<tr class="text-center">
-                        <th colspan="5">Tổng thành tiền: </th>
-                        <td class=" text-danger font-weight-bold"><span id="tong_thanh_tien">'.$tong.' đ</span></td>
-                        <td></td>
+                        <th colspan="4">Tổng thành tiền: </th>
+                        <td class=" text-danger font-weight-bold"><span id="tong_thanh_tien">'.number_format($tongtien).' đ</span></td>
                       </tr>'
                 ?>
-
             </tbody>
         </table>
     </div>

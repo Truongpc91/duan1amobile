@@ -1,6 +1,7 @@
 <div class="rows">
 <div class="container">
     <div class="cards row mt-5">
+    <h3 class="card-header text-center bg-dark text-white">TỔNG HỢP ĐẦU MỤC</h3>
         <div class="card-single col d-flex justify-content-around bg-success text-white py-5 ml-3">
             <div>
                 <h1 class="font-weight-bold"><?= $countdm ?></h1>

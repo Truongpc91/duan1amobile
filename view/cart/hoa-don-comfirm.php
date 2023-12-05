@@ -16,7 +16,7 @@
         }
     }
 ?>
-<div class="card bg-light col-12 col-6 mb-3 ">
+<div class="card-hoa-don">
             <div class="card-body text-center">
                 <h5 class="alert-info mb-3 pt-3 pb-3 pl-sm-4 shadow-sm text-center" style="margin-top: 5rem; margin-bottom: 0rem">MÃ ĐƠN HÀNG: <?=$ten_bill?><?=$id_hoa_don?></h5>
                     <div class="product-price">
@@ -43,11 +43,27 @@
                             <li class="list-inline-item"><i class="fa fa-credit-card fa-2x"></i><br />Bảo mật</li>
                             <li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br />0384196190</li>
                         </ul>
-                    </div>
+                    </div><br>
+                    <?php
+                        if($pttt == 2) { ?>
+                                <div class="row m-1 pb-5">
+                                    <form method="POST" target="_black" enctype="application/x-www-form-urlencoded"
+                                                            action="view/cart/xulythanhtoanmomo.php" class="col-9 m-auto">
+                                                <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
+                                                <input type="hidden" name="tong_tien" value="<?=$tong_tien?>">
+                                    </form>
+                                </div>
+                            <?php  }
+                    ?>
                     <div class="row  m-1 pb-5">
                         <a class="btn btn-outline-dark col-12" href="index.php">Xác Nhận</a>
                     </div>
                 </div>
 </div>
             
-     
+<style>
+   .card-hoa-don{
+        border:2px solid black;
+        text-align:center;
+   } 
+</style>

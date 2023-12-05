@@ -1,7 +1,7 @@
 <div class="row">
 <div class="container">
     <div class="page-title">
-        <h4 class="mt-5 font-weight-bold text-center">DANH SÁCH HÓA ĐƠN</h4>
+        <h3 class="card-header text-center bg-dark text-white">DANH SÁCH HÓA ĐƠN</h3>
     </div>
     <div class="box box-primary">
         <div class="box-body">
@@ -25,6 +25,7 @@
 
                     foreach ($listhoadon as $hoadon) {
                         extract($hoadon);
+                        $suahoadon = "index.php?act=suahoadon&idhoadon=".$id_hoa_don;
                         $checkpttt;
                         $checktrangthai;
                         if($pttt == 1) {
@@ -57,10 +58,9 @@
                         <td><?= $checkpttt ?></td>
                         <td><?= $checktrangthai ?></td>
                         <td><?= $ngay_dat_hang ?></td>
-                        <td class="text-end">
-                                    <a href="index.php?act=updatehoadon" class="btn btn-outline-info btn-rounded"><i
-                                            class="fas fa-pen"></i></a>
-                                </td>
+                        <td >
+                            <a href="<?= $suahoadon ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
+                        </td>
                     </tr>
                     <?php
                     }

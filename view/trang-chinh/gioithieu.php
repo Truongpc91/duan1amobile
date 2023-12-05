@@ -20,10 +20,10 @@
                         <h2 class="text-danger">Shop Bán Đồ Thương Hiệu Apple Lớn Uy Tín Nhất Hà Nội</h2>
                         <img class="dividerline"
                             src="http://www.pixempire.com/images/preview/horizontal-line-icon-1.jpg" alt="">
-                        <h4>Adidas là một tập đoàn đa quốc gia của Đức, được thành lập và có trụ sở tại Herzogenaurach, Bavaria, chuyên thiết kế và sản xuất giày dép, quần áo và phụ kiện.
-                            Đây là nhà sản xuất đồ thể thao lớn nhất ở châu Âu và lớn thứ hai trên thế giới, sau Nike.
-                            Đây là công ty cổ phần của Tập đoàn Adidas, bao gồm 8,33% cổ phần của câu lạc bộ bóng đá Bayern München, và Runtastic, một công ty công nghệ thể dục của Áo.
-                            Doanh thu của Adidas cho năm 2018 được liệt kê là 21,915 tỷ euro..</h4>
+                        <h4>TQD - AMobile là cửa hàng bán đồ Apple chính hãng tại Việt Nam, được ủy quyền bởi Apple, mang đến cho khách hàng trải nghiệm mua sắm tiện lợi và an tâm.
+                            Các sản phẩm tại TQD - AMobile đều được nhập khẩu chính hãng từ Apple, có đầy đủ hóa đơn, chứng từ và bảo hành chính hãng.
+                            TQD - AMobile là địa chỉ mua sắm đồ Apple uy tín dành cho khách hàng tại Hà Nội. Với hệ thống rộng khắp, sản phẩm chính hãng, giá cả cạnh tranh và nhiều ưu đãi hấp dẫn, TQD - AMobile chắc chắn sẽ mang đến cho bạn trải nghiệm mua sắm hài lòng.
+                        </h4>
                     </div>
                 </div>
             </div>

@@ -50,7 +50,7 @@
                                     </button>
                                 </div>
                                 <input type="text" class="text-center" id="quantity" name="quantity" min="1" max="100"
-                                    value="1">
+                                    value="1" name="soluong">
                                 <div class="input-group-append">
                                     <button type="button" class="quantity-right-plus btn btn-success btn-number"
                                         data-type="plus" data-field="">
@@ -102,7 +102,7 @@
         
         <div class="col-12">
             <div class="card border-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-align-justify"></i>
+                <div class="card-header bg-primary text-white text-uppercase"><i class="fa-regular fa-comment"></i></i></i>
                     Bình Luận
                 </div>
                 <div class="card-body">

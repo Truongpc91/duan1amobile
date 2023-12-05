@@ -64,7 +64,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <?php
                             if (isset($_SESSION['user'])) { ?>
-
+                                
                             <?php if ($_SESSION['user']['vai_tro'] == 0) { ?>
                             <a class="dropdown-item pl-3 py-2" href="admin">Quản trị admin</a>
                             <?php }  ?>

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header text-center bg-dark text-white text-uppercase">THÊM MỚI DANH MỤC</div>
+            <h4 class="mt-5 font-weight-bold text-center">THÊM MỚI DANH MỤC</h4>
             <div class="card-body">
                 <form action="index.php?act=adddm" method="POST" id="addm">
                     <div class="mb-3">

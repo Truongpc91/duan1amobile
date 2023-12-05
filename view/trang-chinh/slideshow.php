@@ -3,16 +3,24 @@
         <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
         <li data-target="#carousel1_indicator" data-slide-to="1"></li>
         <li data-target="#carousel1_indicator" data-slide-to="2"></li>
+        <li data-target="#carousel1_indicator" data-slide-to="3"></li>
+        <li data-target="#carousel1_indicator" data-slide-to="4"></li>
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="uploads/background1.png" alt="First slide" >
+            <img class="d-block w-100" src="uploads/background3.jpg" alt="First slide" >
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="uploads/background2.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="uploads/background3.jpg" alt="Third slide">
+            <img class="d-block w-100" src="uploads/background1.png" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="uploads/background5.jpg" alt="Four slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="uploads/background6.jpg" alt="Five slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">

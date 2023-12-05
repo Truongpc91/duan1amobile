@@ -8,6 +8,11 @@
     include '../dao/thong-ke.php';
     include '../dao/binh-luan.php';
     include '../dao/hoa-don.php';
+
+    require '../carbon/autoload.php';
+
+    use Carbon\Carbon;
+    use Carbon\CarbonInterval;
    
     //controler 
 
@@ -198,13 +203,91 @@
         case 'listhoadon' :
             $listhoadon = hoa_don_select_all();
             include 'hoa-don/list.php';
-            break;    
+            break;
+
+        case 'suahoadon' :
+            if(isset($_GET['idhoadon']) && ($_GET['idhoadon'])>0 ){
+                       
+                $hoadon = hoa_don_select_by_id($_GET['idhoadon']);
+                foreach($hoadon as $dh) {
+                    // var_dump($dh);
+                }
+                // extract($hoadon);
+                
+            }
+            include 'hoa-don/update.php';
+            break;
+            
+        case 'updatehoadon' :
+            if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+                $id_hoa_don = $_POST['idhoadon'];
+                $trangthai = $_POST['trangthai'];
+                $ngay_dat_hang = $_POST['ngay_dat_hang'];
+                $tong_gia = $_POST['tong_gia'];
+                $don_hang = 0;
+                $so_luong_ban = 60;
+                update_hoa_don($id_hoa_don, $trangthai);
+
+                $listngaydat = select_tbl_thongke_by_ngay_dat($ngay_dat_hang);
+                
+                foreach($listngaydat as $key) {
+                    $countdoanhthu;
+                    if($ngay_dat_hang != $key['ngay_dat_hang']){
+                        $don_hang+=1;
+                        insert_tbl_thongke($ngay_dat_hang,$don_hang, $tong_gia, $so_luong_ban);
+                    }else{
+                        $countdoanhthu+=$tong_gia;
+                        update_tbl_thongke($ngay_dat_hang,$don_hang, $countdoanhthu, $so_luong_ban);
+                    }
+                }
+                
+
+                // var_dump($listngaydat);
+                echo "<script>
+                alert('Cập nhật hóa đơn thành công!!!'); 
+                location.href='http://localhost/duan1amobile/admin/index.php?act=listhoadon';
+                </script>";
+            }
+            include 'hoa-don/list.php';
+            break;
         case 'thongke' :
+            $thu = cart_select_all();
             $listthongke = thong_ke_san_pham();
             include 'thong-ke/list.php';
             break;
-       }
        
+       case 'bieudo' :
+            $listthongke = thong_ke_san_pham();
+            include 'thong-ke/bieu-do.php';
+            break;
+
+        case 'thongkethunhap' :
+            // $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays(365)->toDateString();
+            $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+            if(isset($_POST['search']) && $_POST['search']){
+                $date = $_POST['date'];
+                if($date == '7ngay'){
+                     $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays(7)->toDateString();
+                     $val = thong_ke_theo_nam($subdays, $now);
+                     $text='7 ngày qua';
+                }else if($date == '30ngay'){
+                    $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays(30)->toDateString();
+                    $val = thong_ke_theo_nam($subdays, $now);
+                    $text='30 ngày qua';
+                }else if($date == '90ngay'){
+                    $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays(90)->toDateString();
+                    $val = thong_ke_theo_nam($subdays, $now);
+                    $text='90 ngày qua';
+                }else{
+                    $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays(365)->toDateString();
+                    $val = thong_ke_theo_nam($subdays, $now);
+                    $text='365 ngày qua';
+                }
+            }
+            $text;
+            include 'thong-ke/thong-ke-thu-nhap.php';
+            break;
+       } 
     }else {
             include 'home.php';
         }

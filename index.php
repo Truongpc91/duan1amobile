@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <!-- Font awesome -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="css/css-search.css" type="text/css">
     <!-- Slick slider -->
     <link rel="stylesheet" href="css/slick.css" type="text/css">
     <link rel="stylesheet" href="css/slick-theme.css" type="text/css">
@@ -23,6 +24,7 @@
 
 <body>
 <?php
+    ob_start();
     session_start();
     include 'view/trang-chinh/header.php';
     include 'dao/san-pham.php';
@@ -30,6 +32,12 @@
     include 'dao/user.php';
     include 'dao/binh-luan.php';
     include 'dao/cart.php';
+    include 'dao/hoa-don.php';
+    require 'carbon/autoload.php';
+
+    use Carbon\Carbon;
+    use Carbon\CarbonInterval;
+
 
     if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
 
@@ -58,12 +66,24 @@
                     if (count($items) == 0) {
                         $title_site = "Không sản phẩm nào chứa từ khóa :'<i>$kyw</i>'";
                     }
+                }else if (isset($_POST['serach'])) {
+                    $gia = $_POST['slide'];
+                    if ($gia == 0) {
+                        $title_site = "Tất cả sản phẩm";
+                    } else {
+                        $title_site = "Các sản phẩm có giá dưới :'<i>$gia đ</i>'";
+                    }
+                    $items = san_pham_select_gia($gia);
+                    if (count($items) == 0) {
+                        $title_site = "Không có sản phẩm trong tầm giá";
+                    }
                 } else {
                     $title_site = "Tất cả sản phẩm";
-                    $items = san_pham_select_page('so_luot_xem', 9);
+                    $items = san_pham_select_page('id_sanpham',9);
                 }
                 include 'view/trang-chinh/sanpham.php';
                 break;
+
             case 'sanphamct':
                 if(isset($_GET['id_sanpham']) && ($_GET['id_sanpham']>0)) {
                     $id_sanpham = $_GET['id_sanpham'];
@@ -87,27 +107,30 @@
                     include 'view/san-pham/san-pham-cung-loai.php';
                     }
                     break;
+
             case 'lienhe':
                 include 'view/trang-chinh/lienhe.php';
                 break;
+
             case 'gioithieu':
                 include 'view/trang-chinh/gioithieu.php';
                 break;
+
             case 'dangnhap':
                 if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                     $ten_dang_nhap = $_POST['ten_dang_nhap'];
                     $mat_khau = $_POST['mat_khau'];
                     $checkuser = check_user($ten_dang_nhap, $mat_khau);
                     if($ten_dang_nhap!=''){
-                    if(is_array($checkuser)){
-                        $_SESSION['user'] = $checkuser;
-                        echo "<script>
-                        alert('Đăng Nhập Thành Công!!!'); 
-                        location.href='http://localhost:/duan1amobile';
-                        </script>";  
-                    }
-                    }else{
-                        $thongbao = "<i style='color: red;'>Tài khoản hoặc mặt khẩu không tồn tại !!!</i>";
+                        if(is_array($checkuser)){
+                            $_SESSION['user'] = $checkuser;
+                            echo "<script>
+                            alert('Đăng Nhập Thành Công!!!'); 
+                            location.href='http://localhost:/duan1amobile';
+                            </script>";  
+                        }else{
+                            $thongbao = "<i style='color: red;'>Tài khoản hoặc mặt khẩu không tồn tại !!!</i>";
+                        }
                     }
                     
                 }
@@ -176,6 +199,7 @@
                     break;
                 
             case 'cart' :
+                
                 include 'view/cart/cart.php';
                 break;       
 
@@ -187,10 +211,43 @@
                     $gia = $_POST['gia'];
                     $soluong = 1;
                     $tongtien = $gia * $soluong;
-                    $sanphamadd = [$id_sanpham,$ten_sanpham,$anh_sanpham,$gia,$soluong,$tongtien];
-                    array_push($_SESSION['mycart'],$sanphamadd);
+                
+                if(!isset($_SESSION['mycart'][$id_sanpham])){
+
+                    $_SESSION['mycart'][$id_sanpham] = array(
+                        'ten_sanpham' => $ten_sanpham,
+                        'soluong' => $soluong,
+                        'gia' => $gia,
+                        'anh_sanpham' => $anh_sanpham,
+                        'id_sanpham' => $id_sanpham,
+                        'tongtien' => $tongtien,
+                    );
+                }else{
+                    $_SESSION['mycart'][$id_sanpham]['soluong'] += 1;
                 }
+            }
                 include 'view/cart/cart.php';
+                break;
+
+            case 'updatecart':
+                if (isset($_POST['update'])) {
+                   
+                        $productId = $_POST['productId'];
+                        // print_r($_SESSION['mycart'][2]);
+                        $sl = $_POST['productSlUpdate'];
+                        foreach ($productId as $index => $productId) {
+                            $_SESSION['mycart'][$productId]['soluong'] = $sl[$index];
+
+                            // print_r($_SESSION['mycart']);
+
+                        }
+                        header("Location:http://localhost/duan1amobile/index.php?act=cart");
+                    
+                    // else{
+                        // header("Location:http://localhost/duan1amobile/index.php?act=cart");
+                    // }
+                }
+                // include 'test.php';
                 break;
 
             case 'xoacart':
@@ -208,23 +265,25 @@
                 break;
             
             case 'confirmhoadon' :
-                if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
+                if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])){
 
-                    // $ten_bill = $_POST['ten_bill'];
+                    $ten_dang_nhap = $_SESSION['user']['ten_dang_nhap'];
                     $ten_bill = bin2hex(random_bytes(3));
                     $bill_email = $_POST['bill_email'];
                     $so_dien_thoai_bill = $_POST['so_dien_thoai_bill'];
                     $pttt = $_POST['phuong_thuc_tt'];
                     $dia_chi_bill = $_POST['dia_chi_bill'];
-                    $ngay_dat_hang = date('d/m/Y');
-                    $tong_gia = tongdonhang(); 
+                    // $ngay_dat_hang = date('d/m/Y');
+                    $tong_gia = tongdonhang();
+                    
+                    $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
 
-                    $idhoadon = insert_hoa_don($ten_bill, $bill_email, $so_dien_thoai_bill, $dia_chi_bill, $tong_gia, $pttt, $ngay_dat_hang);
+                    $idhoadon = insert_hoa_don($ten_dang_nhap,$ten_bill, $bill_email, $so_dien_thoai_bill, $dia_chi_bill, $tong_gia, $pttt, $now);
 
                    //insert into cart : Lấy dữ liệu từ session['mycart'] và idhoadon
 
                    foreach ($_SESSION['mycart'] as $cart) {
-                        insert_cart($_SESSION['user']['ten_dang_nhap'],$cart[0],$cart[2],$cart[3],$cart[4],$cart[5],$idhoadon);
+                        insert_cart($_SESSION['user']['ten_dang_nhap'],$cart['id_sanpham'],$cart['anh_sanpham'],$cart['gia'],$cart['soluong'],$tong_gia,$now,$idhoadon);
                    }
                    
                    unset($_SESSION['mycart']);
@@ -233,9 +292,25 @@
                 include 'view/cart/hoa-don-comfirm.php';
                 break;
 
+                case 'camon':
+                    include 'view/cart/cam-on.php';
+                    break;
+
                 case 'xemhoadon':
-                    $listhoadon = hoa_don_select_by_id_user($_SESSION['user']['email']);
-                    include 'view/cart/xem-hoa-don.php';
+                    $ten_dang_nhap = $_SESSION['user']['ten_dang_nhap'];
+                    $listhoadon = hoa_don_select_by_id_user($ten_dang_nhap);
+
+                    // var_dump($listhoadon);
+                    // extract($listcart);
+                    include 'view/cart/list-hoa-don.php';
+                    break;
+                case 'xemchitiethoadon':
+                    if(isset($_POST['hoadon']) && $_POST['hoadon']){
+                        $name_bill = $_POST['name_bill'];
+                        $id_hoa_don = $_POST['id'];
+                        $listcart = cart_select_by_id($id_hoa_don);
+                    }
+                    include 'view/cart/xem-chi-tiet-hoa-don.php';
                     break;
             default:
                 include 'view/trang-chinh/slideshow.php';
@@ -250,6 +325,7 @@
         include 'view/trang-chinh/top10.php';
     }
     include 'view/trang-chinh/footer.php';
+    ob_end_flush();
 ?>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

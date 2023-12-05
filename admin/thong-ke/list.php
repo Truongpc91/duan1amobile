@@ -2,6 +2,7 @@
 <div class="container">
     <div class="page-title">
         <h4 class="mt-5 font-weight-bold text-center">THỐNG KÊ GIÁ SẢN PHẨM THEO DANH MỤC</h4>
+        <!-- <?php echo $thu ?> -->
     </div>
     <div class="box box-primary">
         <div class="box-body">
@@ -29,6 +30,7 @@
                         <td><?= number_format($gia_max, 0) ?> đ</td>
                         <td><?= number_format($gia_avg, 0) ?> đ</td>
                     </tr>
+                    
                     <?php
                     }
 
