@@ -20,10 +20,10 @@
                         extract($hoadon);
                         $checkpttt;
                         $checktrangthai;
-                        if($pttt == 1){
-                            $checkpttt = "Chuyển khoản";
-                        }else{
+                        if($pttt == 0){
                             $checkpttt = "Tiền mặt";
+                        }else{
+                            $checkpttt = "Chuyển khoản";
                         }
 
                         if($trang_thai == 0){

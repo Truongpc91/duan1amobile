@@ -16,6 +16,11 @@ function san_pham_update($id_sanpham, $ten_sanpham, $gia, $anh_sanpham, $color, 
     pdo_execute($sql);
 }
 
+function update_soluong_sanpham($id_sanpham,$so_luong){
+    $sql = "UPDATE san_pham SET so_luong='$so_luong' WHERE id_sanpham='$id_sanpham'";
+    pdo_execute($sql);
+}
+
 function san_pham_delete($id_sanpham){
     $sql = "DELETE FROM san_pham WHERE  id_sanpham=$id_sanpham";
     if(is_array($id_sanpham)){

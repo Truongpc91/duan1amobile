@@ -11,7 +11,7 @@ $partnerCode = 'MOMOBKUN20180529';
 $accessKey = 'klm05TvNBzhg7h7j';
 $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán qua MoMo";
-$amount = "21990000";
+$amount = "61990000";
 $orderId = time() ."";
 $redirectUrl = "http://localhost/duan1amobile/index.php?act=camon";
 $ipnUrl = "http://localhost/duan1amobile/index.php?act=camon";

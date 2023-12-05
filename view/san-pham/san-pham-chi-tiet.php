@@ -41,7 +41,7 @@
                     <form method="POST" action="index.php?act=addtocart">
 
                         <div class="form-group">
-                            <label>Số lượng :</label>
+                            <label>Số lượng : <?=$so_luong?></label>
                             <div class="input-group mb-3 justify-content-center">
                                 <div class="input-group-prepend">
                                     <button type="button" class="quantity-left-minus btn btn-danger btn-number"

@@ -275,7 +275,8 @@
                     $dia_chi_bill = $_POST['dia_chi_bill'];
                     // $ngay_dat_hang = date('d/m/Y');
                     $tong_gia = tongdonhang();
-                    
+
+                    $slupdate;
                     $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
 
                     $idhoadon = insert_hoa_don($ten_dang_nhap,$ten_bill, $bill_email, $so_dien_thoai_bill, $dia_chi_bill, $tong_gia, $pttt, $now);
@@ -284,6 +285,11 @@
 
                    foreach ($_SESSION['mycart'] as $cart) {
                         insert_cart($_SESSION['user']['ten_dang_nhap'],$cart['id_sanpham'],$cart['anh_sanpham'],$cart['gia'],$cart['soluong'],$tong_gia,$now,$idhoadon);
+                        $id_sanpham = $cart['id_sanpham'];
+                        $sanpham = san_pham_select_by_id($id_sanpham);
+                        extract($sanpham);
+                        $slupdate = $sanpham['so_luong'] - $cart['soluong'];
+                        update_soluong_sanpham($cart['id_sanpham'],$slupdate);
                    }
                    
                    unset($_SESSION['mycart']);
