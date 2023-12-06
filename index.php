@@ -307,6 +307,25 @@
                 include 'view/cart/hoa-don-comfirm.php';
                 break;
 
+                case 'huydonhang':
+                    if(isset($_GET['id']) && $_GET['id']){
+                        $id = $_GET['id'];
+                        // echo $id;
+                        // $listcart = cart_select_by_id($id);
+                        // extract($listcart);
+
+                        cart_delete_id_hoa_don($id);
+                        hoa_don_delete_id_hoa_don($id);
+                        echo "<script>
+                        alert('Đăng Ký Tài Khoản Thành Công!!!'); 
+                        location.href='http://localhost:/duan1amobile/index.php?act=cart';
+                        </script>";
+
+                    }
+                    include 'view/cart/list-hoa-don.php';
+                    // include 'test.php';
+                    break;
+
                 case 'camon':
                     include 'view/cart/cam-on.php';
                     break;
@@ -319,6 +338,7 @@
                     // extract($listcart);
                     include 'view/cart/list-hoa-don.php';
                     break;
+
                 case 'xemchitiethoadon':
                     if(isset($_POST['hoadon']) && $_POST['hoadon']){
                         $name_bill = $_POST['name_bill'];

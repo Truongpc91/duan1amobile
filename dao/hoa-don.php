@@ -29,7 +29,7 @@
 
     function hoa_don_delete($id_hoa_don){
         $sql = "DELETE FROM hoa_don  WHERE id_hoa_don=$id_hoa_don";
-        if(is_array($ten_dang_nhap)){
+        if(is_array($id_hoa_don)){
             foreach ($id_hoa_don as $ma) {
                 pdo_execute($sql, $ma);
             }
@@ -47,5 +47,31 @@
     function cart_select_all(){
         $sql = "SELECT sum(tong_tien) FROM cart";
         return pdo_query($sql);
+    }
+
+    function cart_delete_id_hoa_don($id_hoa_don) {
+        $sql = "DELETE FROM cart WHERE id_hoa_don='$id_hoa_don'";
+        // if(is_array($id_hoa_don)){
+        //     foreach ($id_hoa_don as $ma) {
+        //         pdo_execute($sql, $ma);
+        //     }
+        // }
+        // else{
+        //     pdo_execute($sql, $id_hoa_don);
+        // }
+        pdo_execute($sql);
+    }
+
+    function hoa_don_delete_id_hoa_don($id_hoa_don) {
+        $sql = "DELETE FROM hoa_don WHERE id_hoa_don='$id_hoa_don'";
+        // if(is_array($id_hoa_don)){
+        //     foreach ($id_hoa_don as $ma) {
+        //         pdo_execute($sql, $ma);
+        //     }
+        // }
+        // else{
+        //     pdo_execute($sql,$id_hoa_don);
+        // }
+        pdo_execute($sql);
     }
 ?>

@@ -16,7 +16,7 @@
             <tbody class="text-center" id="giohang">
                 <?php 
                 $stt=1;
-                    foreach($listhoadon as $hoadon) {
+                    foreach($listhoadon as $hoadon) { 
                         extract($hoadon);
                         $checkpttt;
                         $checktrangthai;
@@ -35,24 +35,30 @@
                         }else{
                             $checktrangthai = "Đã giao";
                         }
-                    echo '<tr>
-                        <td>'.$stt++.'</td>
-                        <td>'.$ten_bill.'</td>
-                        <td> <span>'.$dia_chi_bill.'</span></td>
-                        <td> <span>'.$checkpttt.'</span></td>
-                        <td> <span>'.$checktrangthai.'</span></td>
-                        <td> <span>'.number_format($tong_gia).'</span></td>
-                        <td> <span>'.$ngay_dat_hang.'</span></td>
+                        ?>
+                     <tr>
+                        <td><?= $stt++ ?></td>
+                        <td><?=$ten_bill ?></td>
+                        <td> <span><?= $dia_chi_bill ?></span></td>
+                        <td> <span><?= $checkpttt ?></span></td>
+                        <td> <span><?= $checktrangthai ?></span></td>
+                        <td> <span><?= number_format($tong_gia) ?></span></td>
+                        <td> <span><?= $ngay_dat_hang ?></span></td>
                         <td>
                             <form method="POST" action="index.php?act=xemchitiethoadon">
-                                <input type="hidden" name="id" value="'.$id_hoa_don.'">
-                                <input type="hidden" name="name_bill" value="'.$ten_bill.'">
+                                <input type="hidden" name="id" value="<?= $id_hoa_don ?>">
+                                <input type="hidden" name="name_bill" value="<?= $ten_bill ?>">
+                                <?php
+                                    if($trang_thai == 0 && $pttt == 0){
+                                        echo '<a  href="index.php?act=huydonhang&id='.$id_hoa_don.'" class="btn btn-danger">Hủy</a>';
+                                        // echo '<input type="submit" value="Hủy" class="btn btn-danger" name="huydonhang">';
+                                    }
+                                ?>
                                 <input type="submit" name="hoadon" value="Chi tiết" class="btn btn-success text-white">
                             </form>
                         </td>
-                    </tr>';
-                    }
-                ?>
+                    </tr>
+                   <?php  } ?>
 
             </tbody>
         </table>

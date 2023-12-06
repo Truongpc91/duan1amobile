@@ -67,7 +67,14 @@
                                         <input type="hidden" name="ten_sanpham" value="<?=$ten_sanpham?>">
                                         <input type="hidden" name="anh_sanpham" value="<?=$anh_sanpham?>">
                                         <input type="hidden" name="gia" value="<?=$gia?>">
-                                        <input type="submit" name="addtocart" value="ADD TO CART"  class=" btn btn-outline-primary btn-sm"/> 
+                                        <!-- <input type="submit" name="addtocart" value="ADD TO CART"  class=" btn btn-outline-primary btn-sm"/>  -->
+                                        <?php
+                                        if($so_luong > 0){
+                                           echo '<input type="submit" name="addtocart" value="ADD TO CART"  class=" btn btn-outline-primary btn-sm"/>';
+                                        }else{
+                                            echo '<a class="btn btn-secondary btn-outline-primary btn-sm">SẢN PHẨM HẾT HÀNG</a>';
+                                        }
+                                    ?>
                                      </form>
                              </div>
                          </div>

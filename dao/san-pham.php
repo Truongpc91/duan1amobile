@@ -22,7 +22,7 @@ function update_soluong_sanpham($id_sanpham,$so_luong){
 }
 
 function san_pham_delete($id_sanpham){
-    $sql = "DELETE FROM san_pham WHERE  id_sanpham=$id_sanpham";
+    $sql = "DELETE FROM san_pham WHERE id_sanpham='$id_sanpham'";
     if(is_array($id_sanpham)){
         foreach ($id_sanpham as $ma) {
             pdo_execute($sql, $ma);

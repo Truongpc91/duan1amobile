@@ -14,8 +14,10 @@
 ?>
 <div class="row">
     <div class="col-lg-12">
+    <div class="page-title">
+                <h4 class="mt-5 font-weight-bold text-center">XÁC NHẬN HÓA ĐƠN</h4>
+            </div>
         <div class="card">
-            <div class="card-header text-center bg-dark text-white text-uppercase">Xác nhận hóa đơn</div>
             <div class="card-body">
                 <form action="index.php?act=updatehoadon" method="POST" id="edit_loai">
                     <label for="id_dm" class="form-label">Trạng thái đơn hàng:</label>
@@ -30,7 +32,7 @@
                         <input type="hidden" name="tong_gia" value="<?= $tong_gia ?>">
                         <input type="hidden" name="idhoadon" value="<?= $id_hoa_don ?>">
                         <input type="reset" value="NHẬP LẠI" class="btn btn-danger mr-3">
-                        <input type="submit" name="capnhat" value="CẬP NHẬT" class="btn btn-primary mr-3">
+                        <input type="submit" name="capnhat" value="XÁC NHẬN" class="btn btn-primary mr-3">
                         <a href="index.php?act=listhoadon"><input type="button" class="btn btn-success" value="Danh sách"></a>
                     </div>
                 </form>

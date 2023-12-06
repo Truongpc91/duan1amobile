@@ -1,8 +1,8 @@
-<div class="rows">
+<div class="row">
 <div class="container">
-    <div class="page-title">
-        <h3 class="card-header text-center bg-dark text-white">DANH SÁCH HÓA ĐƠN</h3>
-    </div>
+        <div class="page-title">
+            <h4 class="mt-5 font-weight-bold text-center">DANH SÁCH HÓA ĐƠN</h4>
+        </div>
     <div class="box box-primary">
         <div class="box-body">
             <table width="100%" class="table table-hover table-bordered text-center">
@@ -28,7 +28,7 @@
                         $suahoadon = "index.php?act=suahoadon&idhoadon=".$id_hoa_don;
                         $checkpttt;
                         $checktrangthai;
-                        if($pttt == 1) {
+                        if($pttt == 0) {
                             $checkpttt = "Tiền mặt";
                         }else if($pttt == 2){
                             $checkpttt = "Chuyển khoản";
@@ -59,7 +59,7 @@
                         <td><?= $checktrangthai ?></td>
                         <td><?= $ngay_dat_hang ?></td>
                         <td >
-                            <?php if($pttt == 2 && $trang_thai == 0){ ?>
+                            <?php if($trang_thai == 0){ ?>
                                 <a href="<?= $suahoadon ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
                             <?php }?>
                         </td>
