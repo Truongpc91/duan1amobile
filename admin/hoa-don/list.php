@@ -26,6 +26,7 @@
                     foreach ($listhoadon as $hoadon) {
                         extract($hoadon);
                         $suahoadon = "index.php?act=suahoadon&idhoadon=".$id_hoa_don;
+                        $huyhoadon = "index.php?act=huyhoadon&idhoadon=".$id_hoa_don;
                         $checkpttt;
                         $checktrangthai;
                         if($pttt == 0) {
@@ -41,9 +42,11 @@
                         if($trang_thai == 0){
                             $checktrangthai = "Đơn hàng mới";
                         }else if($trang_thai == 1) {
-                            $checktrangthai = "Đã Xác nhận";
+                            $checktrangthai = '<i class="text-success">Đã Xác nhận</i>';
                         }else if($trang_thai == 2) {
                             $checktrangthai = "Đang giao";
+                        }else if($trang_thai == 5) {
+                            $checktrangthai = '<i class="text-danger">Đơn chờ hủy</i>';
                         }else{
                             $checktrangthai = "Đã giao";
                         }
@@ -61,7 +64,9 @@
                         <td >
                             <?php if($trang_thai == 0){ ?>
                                 <a href="<?= $suahoadon ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
-                            <?php }?>
+                            <?php }else if($trang_thai == 5){ ?>
+                                <a href="<?= $huyhoadon ?>" class="btn btn-outline-info btn-rounded"><i class="fa-solid fa-check"></i></a>
+                                <?php } ?>
                         </td>
                     </tr>
                     <?php

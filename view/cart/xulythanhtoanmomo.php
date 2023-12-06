@@ -1,17 +1,21 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
+session_start();
 
 include 'helper_momo.php';
 
+// 9704 0000 0000 0018
+// NGUYEN VAN A
+// 03/07
 
 $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
 
-
+$tong = $_SESSION['tong_gia'];
 $partnerCode = 'MOMOBKUN20180529';
 $accessKey = 'klm05TvNBzhg7h7j';
 $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán qua MoMo";
-$amount = "61990000";
+$amount = $tong;
 $orderId = time() ."";
 $redirectUrl = "http://localhost/duan1amobile/index.php?act=camon";
 $ipnUrl = "http://localhost/duan1amobile/index.php?act=camon";
@@ -40,7 +44,7 @@ $extraData = "";
     $jsonResult = json_decode($result, true);  // decode json
 
     //Just a example, please check more in there
-
+    
     header('Location: ' . $jsonResult['payUrl']);
 
 ?>

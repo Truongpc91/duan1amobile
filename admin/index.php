@@ -259,6 +259,20 @@
             }
             include 'hoa-don/list.php';
             break;
+
+            case 'huyhoadon' :
+                if(isset($_GET['idhoadon']) && ($_GET['idhoadon'])>0 ){
+                    $id = $_GET['idhoadon'];
+                    cart_delete_id_hoa_don($id);
+                    hoa_don_delete_id_hoa_don($id);
+                    echo "<script>
+                    alert('Đã duyệt xóa hóa đơn!!!'); 
+                    location.href='http://localhost/duan1amobile/admin/index.php?act=listhoadon';
+                    </script>";
+                    
+                }
+                include 'hoa-don/list.php';
+                break;
         case 'thongke' :
             $thu = cart_select_all();
             $listthongke = thong_ke_san_pham();

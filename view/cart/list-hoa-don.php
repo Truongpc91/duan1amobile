@@ -29,10 +29,14 @@
                         if($trang_thai == 0){
                             $checktrangthai = "Đơn hàng mới";
                         }else if($trang_thai == 1) {
-                            $checktrangthai = "Đã xác nhận";
+                            $checktrangthai = '<i class="text-success">Đã xác nhận</i>';
                         }else if($trang_thai == 2) {
                             $checktrangthai = "Đang giao";
-                        }else{
+                        }
+                        else if($trang_thai == 5) {
+                            $checktrangthai = '<i class="text-danger">Chờ hủy</i>';
+                        }
+                        else{
                             $checktrangthai = "Đã giao";
                         }
                         ?>

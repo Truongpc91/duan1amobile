@@ -299,6 +299,7 @@
                         extract($sanpham);
                         $slupdate = $sanpham['so_luong'] - $cart['soluong'];
                         update_soluong_sanpham($cart['id_sanpham'],$slupdate);
+                        $_SESSION['tong_gia'] = $tong_gia;
                    }
                    
                    unset($_SESSION['mycart']);
@@ -313,12 +314,14 @@
                         // echo $id;
                         // $listcart = cart_select_by_id($id);
                         // extract($listcart);
+                        $trang_thai = 5;
+                        update_hoa_don($id, $trang_thai);
 
-                        cart_delete_id_hoa_don($id);
-                        hoa_don_delete_id_hoa_don($id);
+                        // cart_delete_id_hoa_don($id);
+                        // hoa_don_delete_id_hoa_don($id);
                         echo "<script>
-                        alert('Đăng Ký Tài Khoản Thành Công!!!'); 
-                        location.href='http://localhost:/duan1amobile/index.php?act=cart';
+                        alert('Vui lòng chờ xét duyệt!!!'); 
+                        location.href='http://localhost:/duan1amobile/index.php?act=xemhoadon';
                         </script>";
 
                     }
