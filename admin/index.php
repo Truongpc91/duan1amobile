@@ -185,6 +185,30 @@
             $listuser = user_select_all();
             include 'user/list.php';
             break;
+
+        case 'khoauser':
+            if(isset($_GET['id']) && ($_GET['id'])>0 ) {
+                $ten_dang_nhap = $_GET['id'];
+                $kich_hoat = 0;
+                lock_user($ten_dang_nhap, $kich_hoat);
+                echo "<script>
+                alert('Khóa tài khoản thành công!!!');
+                location.href='http://localhost/duan1amobile/admin/index.php?act=listuser';
+                </script>";
+            }
+            break;
+
+        case 'mokhoauser':
+            if(isset($_GET['id']) && ($_GET['id'])>0 ) {
+                $ten_dang_nhap = $_GET['id'];
+                $kich_hoat = 1;
+                lock_user($ten_dang_nhap, $kich_hoat);
+                echo "<script>
+                alert('Mở khóa tài khoản thành công!!!');
+                location.href='http://localhost/duan1amobile/admin/index.php?act=listuser';
+                </script>";
+            }
+            break;
         
         case 'listbinhluan' :
             $listbinhluan = thong_ke_binh_luan();

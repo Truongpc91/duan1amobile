@@ -54,3 +54,8 @@ function user_change_password($ten_dang_nhap, $mat_khau_moi){
     $sql = "UPDATE user SET mat_khau='$mat_khau_moi' WHERE ten_dang_nhap='$ten_dang_nhap'";
     pdo_execute($sql);
 }
+
+function lock_user($ten_dang_nhap, $kich_hoat){
+    $sql = "UPDATE user SET kich_hoat= b'$kich_hoat' WHERE ten_dang_nhap='$ten_dang_nhap'";
+    pdo_execute($sql);
+}

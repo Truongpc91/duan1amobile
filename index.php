@@ -131,6 +131,12 @@
                                 alert('Đăng Nhập Thành Công!!!'); 
                                 location.href='http://localhost:/duan1amobile/admin';
                                 </script>";  
+                            }else if($user['vai_tro'] == 1 && $user['kich_hoat'] == 0){
+                                unset($_SESSION['user']);
+                                echo "<script>
+                                alert('Xin lỗi tài khoản của bạn đã bị khóa!!!');
+                                location.href='http://localhost/duan1amobile/index.php?act=dangnhap'; 
+                                </script>";
                             }else{
                                 echo "<script>
                                 alert('Đăng Nhập Thành Công!!!'); 

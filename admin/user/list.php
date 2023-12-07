@@ -26,7 +26,8 @@
                     <?php 
                         foreach ($listuser as $user) {
                             extract($user);
-                            $suauser = "index.php?act=suauser&id=".$ten_dang_nhap;
+                            $khoauser = "index.php?act=khoauser&id=".$ten_dang_nhap;
+                            $mokhoauser = "index.php?act=mokhoauser&id=".$ten_dang_nhap;
                             $hinhpath = "../uploads/".$anh_user;
                             if(is_file($hinhpath)) {
                                 $anh_user = "<img src='".$hinhpath."' height='80'>";
@@ -43,25 +44,29 @@
                             }
                             //Kiểm tra kích hoạt
                             if ($kich_hoat == 1){
-                                $checkkichhoat = "Rồi";
+                                $checkkichhoat = '<i class="text-primary">Rồi</i>';
                             }else {
-                                $checkkichhoat =  "Chưa";
+                                $checkkichhoat =  '<i class="text-danger">Chưa</i>';
                             }
-                            echo '<tr>
-                                <td>'.$ten_dang_nhap.'</td>
-                                <td>'.$ten_user.'</td>
-                                <td>'.$anh_user.'</td>
-                                <td>'.$email.'</td>
-                                <td>'.$so_dien_thoai.'</td>
-                                <td>'.$dia_chi.'</td>
-                                <td>'.$checkvaitro.'</td>
-                                <td>'.$checkkichhoat.'</td>
-                                <td class="text-end">
-                                    <a href="'.$suauser.'" class="btn btn-outline-info btn-rounded"><i
-                                            class="fas fa-pen"></i></a>
+                            ?>
+                             <tr>
+                                <td><?= $ten_dang_nhap ?></td>
+                                <td><?= $ten_user ?></td>
+                                <td><?= $anh_user ?></td>
+                                <td><?= $email ?></td>
+                                <td><?= $so_dien_thoai ?></td>
+                                <td><?= $dia_chi ?></td>
+                                <td><?= $checkvaitro ?></td>
+                                <td><?= $checkkichhoat ?></td>
+                                <td >
+                                    <?php if($kich_hoat == 1){ ?>
+                                        <a href="<?= $khoauser ?>" class="btn btn-outline-danger btn-rounded"><i class="fa-solid fa-lock"></i></a>
+                                    <?php }else if($kich_hoat == 0){ ?>
+                                        <a href="<?= $mokhoauser ?>" class="btn btn-outline-info btn-rounded"><i class="fa-solid fa-lock-open"></i></a>
+                                    <?php } ?>
                                 </td>
-                                </tr>';
-                        } ?>
+                            </tr>
+                       <?php } ?>
                     </tbody>
 
                 </table>
