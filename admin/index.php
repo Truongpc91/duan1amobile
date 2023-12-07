@@ -216,15 +216,21 @@
 
         case 'suahoadon' :
             if(isset($_GET['idhoadon']) && ($_GET['idhoadon'])>0 ){
-                       
-                $hoadon = hoa_don_select_by_id($_GET['idhoadon']);
-                foreach($hoadon as $dh) {
-                    // var_dump($dh);
-                }
+                $id_hoa_don = $_GET['idhoadon'];
+                $trangthai = 1;
+                update_hoa_don($id_hoa_don, $trangthai);
+                echo "<script>
+                alert('Cập nhật hóa đơn thành công!!!'); 
+                location.href='http://localhost/duan1amobile/admin/index.php?act=listhoadon';
+                </script>";
+                // $hoadon = hoa_don_select_by_id($_GET['idhoadon']);
+                // foreach($hoadon as $dh) {
+                //     // var_dump($dh);
+                // }
                 // extract($hoadon);
                 
             }
-            include 'hoa-don/update.php';
+            include 'hoa-don/list.php';
             break;
             
         case 'updatehoadon' :
@@ -263,14 +269,29 @@
             case 'huyhoadon' :
                 if(isset($_GET['idhoadon']) && ($_GET['idhoadon'])>0 ){
                     $id = $_GET['idhoadon'];
+                    $listcart = cart_select_by_id($id);
+                    // var_dump($listcart);
+                    // echo "<br>";
+                    foreach($listcart as $cart){
+                        $sanpham = san_pham_select_by_id($cart['id_sanpham']);
+                        extract($sanpham);
+                        // var_dump($sanpham);
+                        $slupdate = $sanpham['so_luong'] + $cart['so_luong'];
+                        // echo "<br>";
+                        // echo $slupdate;
+                        update_soluong_sanpham($cart['id_sanpham'],$slupdate);
+                    }
+                   
                     cart_delete_id_hoa_don($id);
                     hoa_don_delete_id_hoa_don($id);
                     echo "<script>
                     alert('Đã duyệt xóa hóa đơn!!!'); 
                     location.href='http://localhost/duan1amobile/admin/index.php?act=listhoadon';
-                    </script>";
+                    // </script>";
+                    
                     
                 }
+                // include 'footer.php';
                 include 'hoa-don/list.php';
                 break;
         case 'thongke' :
