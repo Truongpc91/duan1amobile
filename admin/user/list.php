@@ -60,9 +60,9 @@
                                 <td><?= $checkkichhoat ?></td>
                                 <td >
                                     <?php if($kich_hoat == 1){ ?>
-                                        <a href="<?= $khoauser ?>" class="btn btn-outline-danger btn-rounded"><i class="fa-solid fa-lock"></i></a>
+                                        <a href="<?= $khoauser ?>" class="btn btn-outline-info btn-rounded"><i class="fa-solid fa-lock-open"></i></a>
                                     <?php }else if($kich_hoat == 0){ ?>
-                                        <a href="<?= $mokhoauser ?>" class="btn btn-outline-info btn-rounded"><i class="fa-solid fa-lock-open"></i></a>
+                                        <a href="<?= $mokhoauser ?>" class="btn btn-outline-danger btn-rounded"><i class="fa-solid fa-lock"></i></a>
                                     <?php } ?>
                                 </td>
                             </tr>
